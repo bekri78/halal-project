@@ -1,0 +1,42 @@
+.navbar.active {
+  background-color: rgb(61, 59, 90);
+}
+
+.navbar {
+  background-color: transparent;
+  height: 60px;
+}
+
+#collasible-nav-dropdown {
+  font: 600 14px/30px Montserrat, sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  position: relative;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+/* .dropdown-menu {} */
+
+@media (max-width: 768px) {
+  .navbar {
+    background-color: rgb(61, 59, 90);
+  }
+
+  .navbar-collapse {
+    background-color: rgb(61, 59, 90);
+    border-radius: 10px;
+  }
+}
+
+@media only screen and (max-width: 991px) and (min-width: 769px) {
+  .navbar {
+    background-color: rgb(61, 59, 90);
+  }
+
+  .navbar-collapse {
+    background-color: rgb(61, 59, 90);
+    border-radius: 10px;
+  }
+}
