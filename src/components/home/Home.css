@@ -39,16 +39,13 @@
 }
 
 .text-box h1 {
-  font-size: 190px;
+  font-size: 90px;
   line-height: 160px;
-  margin-left: -10px;
-  background: url(../../ressource/img/back.png);
-  color: transparent;
+
   -webkit-text-stroke: 1px #fff;
 
   -webkit-background-clip: text;
   background-position: 0 0;
-  animation: back 20s linear infinite;
 }
 @keyframes back {
   100% {
@@ -67,7 +64,9 @@
   flex-wrap: wrap;
   margin-top: 30px;
 }
-
+.animation {
+  margin-left: -100px;
+}
 .text-box a {
   color: #fff;
   text-decoration: none;
@@ -76,6 +75,7 @@
   border: 2px solid #fff;
   display: flex;
   align-items: center;
+  background-color: black;
 }
 .text-box a span {
   font-size: 30px;
@@ -88,4 +88,13 @@
   position: absolute;
   right: 5%;
   bottom: 8%;
+}
+
+.textHOME {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.text2 {
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }

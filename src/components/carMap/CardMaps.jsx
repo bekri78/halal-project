@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Location from "../Location/location";
 import { arrondissementData } from "../../arrondissements";
 import CardMaterialUi from '../cardMui/CardMui'
- 
+import Filter from '../filter/Filter'
+import PredictionsOnInputChange  from '../autoComplete/InputSearch';
 import { MapContainer, TileLayer, Polygon, Marker, Popup } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import  DraggableMarker from '../draggleMarker/marker'
@@ -58,7 +59,7 @@ export default function CardMaps(props) {
   // }, [radius]);
   const resquestApi = async () => {
     const cors = 'https://api.allorigins.win/get?url=';
-    const endpoint = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurant halal&location=${centerMap[0]},${centerMap[1]}&radius=10000&keyword=cruise&key=${key}`;
+    const endpoint = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurant halal&location=${centerMap[0]},${centerMap[1]}&radius=1000&keyword=cruise&key=${key}`;
     const encodedEndpoint = encodeURIComponent(endpoint);
     try {
 
@@ -93,6 +94,9 @@ export default function CardMaps(props) {
   return (
     <Container className="jumbotron" id="map">
       <h1 className='titlemap'>Map</h1>
+      <Row>
+      <PredictionsOnInputChange newLocation={(newLocation)=> setCenterMap(newLocation)}  />
+      </Row>
       <Row>
         <Col sm={12}>
           {/* <Arrondissements
@@ -129,7 +133,7 @@ export default function CardMaps(props) {
                      
                     );
                   })}
-            <DraggableMarker center ={centerMap}/>
+            <DraggableMarker center={centerMap}/>
 
               {arrondissementData.features.map((state, index) => {
                 const coordinates = state.geometry.coordinates[0].map(
@@ -183,7 +187,7 @@ export default function CardMaps(props) {
       </Row>
 
 
-
+<Row><Filter/></Row>
 
       <Row className="align-items-center justify-content-center">
           {restaurant &&

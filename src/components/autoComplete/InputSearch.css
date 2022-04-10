@@ -1,0 +1,27 @@
+.adresse {
+  margin: 10px;
+}
+#inputAsress {
+  width: 100%;
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  margin-left: -20px;
+  text-align: start !important;
+}
+.btnSearch {
+  padding: 2px;
+}
+#form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+}
+
+.adresse {
+  padding-top: 5%;
+}
