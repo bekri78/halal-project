@@ -22,6 +22,7 @@
 @media (max-width: 768px) {
   .navbar {
     background-color: rgb(61, 59, 90);
+    justify-content: end;
   }
 
   .navbar-collapse {
@@ -33,6 +34,7 @@
 @media only screen and (max-width: 991px) and (min-width: 769px) {
   .navbar {
     background-color: rgb(61, 59, 90);
+    justify-content: end;
   }
 
   .navbar-collapse {

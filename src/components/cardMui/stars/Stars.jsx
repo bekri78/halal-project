@@ -5,11 +5,13 @@ import Box from '@mui/material/Box';
 
 export default function SimpleRating(props) {
   return (
-    <div>
-      <Box component="fieldset" mb={3} borderColor="transparent">
-        <Typography component="legend">Note:</Typography>
-        {props.stars ? <Rating name="read-only" value={props.stars} readOnly /> : ' Pas encore de note'}
+  
+      <Box component="fieldset" mb={3} borderColor="transparent" style={{display:'flex', justifyContent:'center', alignItems:'center',margin:'auto'}}>
+        {props.stars ? <Rating name="read-only" value={props.stars} precision={0.5} readOnly /> : ' Pas encore de note'}
+        {/* <Typography component="legend">{props.stars}</Typography> */}
       </Box>
-    </div>
+    
   );
 }
+
+ 

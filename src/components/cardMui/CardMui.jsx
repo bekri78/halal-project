@@ -16,7 +16,14 @@ import DoDisturbOffRoundedIcon from "@mui/icons-material/DoDisturbOffRounded";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Tooltip from "@mui/material/Tooltip";
+import Stack from '@mui/material/Stack';
+import Chip from '@mui/material/Chip';
+import MosqueIcon from '@mui/icons-material/Mosque';
+import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
+import SimpleRating from './stars/Stars';
 import "./CardMui.css";
+
+
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -33,8 +40,12 @@ export default function CardMaterialUi(props) {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  const handleClick=()=>{
+    console.log('click')
+  }
   return (
-    <Card className="card" sx={{ maxWidth: 300, minWidth: 300, margin: 1 }}>
+    <Card className="card" sx={{ maxWidth: 300, minWidth: 300}}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -55,13 +66,20 @@ export default function CardMaterialUi(props) {
         image={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${props.photoreference}&sensor=false&key=${props.apiKey} `}
         alt="Photo reference"
       />
-      <CardContent>
+       <Stack direction="row" spacing={1}>
+
+      <Chip icon={<WorkspacePremiumIcon />} label="Certificat Halal" onClick={handleClick} style={{width:'50%', margin:10}} />
+       
+      <Chip icon={<MosqueIcon />} label="Salle de prière" onClick={handleClick} style={{width:'50%', margin:10}} />
+       </Stack>
+       <SimpleRating stars={props.starsRating}/>
+      {/* <CardContent>
         <Typography variant="body2" color="text.secondary">
           This impressive paella is a perfect party dish and a fun meal to cook
           together with your guests. Add 1 cup of frozen peas along with the
           mussels, if you like.
         </Typography>
-      </CardContent>
+      </CardContent> */}
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
@@ -72,7 +90,6 @@ export default function CardMaterialUi(props) {
           {props.open === true ? (
             <Tooltip title="Ouvert">
                   <IconButton  >
-
               <RestaurantRoundedIcon />
                   </IconButton>
             </Tooltip>
@@ -86,6 +103,7 @@ export default function CardMaterialUi(props) {
           )}
         </div>
 
+     
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}

@@ -6,7 +6,7 @@
 }
 
 ul,
-li {
+.listeInput {
   list-style: none;
   margin: 0;
   margin-left: -20px;
@@ -14,14 +14,31 @@ li {
 }
 .btnSearch {
   padding: 2px;
+  margin-bottom: 2px;
+}
+.btnSearch:hover {
+  background-color: rgb(212, 198, 198);
+}
+.btn-light {
+  border-color: rgba(71, 31, 31, 0.678);
 }
 #form {
   width: 50%;
   display: flex;
   flex-direction: column;
-  padding-top: 30px;
+  /* padding-top: 30px; */
+  position: absolute;
+  margin-top: 9%;
+  margin-left: 8px;
 }
 
 .adresse {
   padding-top: 5%;
+}
+
+.conteneur-inputSearch {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-right: 10px;
 }

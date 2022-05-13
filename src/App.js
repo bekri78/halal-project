@@ -8,10 +8,10 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-       <NavBare/>
+     
       <Routes>
                 <Route  exact  path="/"  element={<Home/>}  />
-                <Route exact path="/map"  element={<CardMaps/>}  />
+                <Route exact path="/map"  element={  <CardMaps/> }  />
            
               </Routes>
     </div>

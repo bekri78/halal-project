@@ -18,7 +18,7 @@ export default function NavBare(props) {
 
   const changeBackground = () => {
     let y = window.scrollY;
-    if (y >= 70) {
+    if (y >= 100) {
       setNavbar(true);
     } else {
       setNavbar(false);
@@ -35,7 +35,7 @@ export default function NavBare(props) {
   >
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav" expand="lg">
-      <Nav className="ml-auto">
+      <Nav className="ml-auto  ">
         <Link to="./map"  style={navigation}>
           MAP
         </Link>
