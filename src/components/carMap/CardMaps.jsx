@@ -48,15 +48,6 @@ export default function CardMaps(props) {
 
   data = JSON.parse(data);
 
-  // useEffect(() => {
-  //   lieuDeTournage.features.map((data) => {
-  //     return (
-  //       setLocation((location) => [...location, data.properties]),
-  //       setDataRating((location) => [...location, data.properties])
-  //     );
-  //   });
-  // }, []);
-
   useEffect(() => {
     const presentLocation = centerMap !== null;
     // si mes state lat et lng sont different de nul appel ma function resquestApi

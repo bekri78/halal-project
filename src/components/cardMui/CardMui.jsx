@@ -45,7 +45,7 @@ export default function CardMaterialUi(props) {
     console.log('click')
   }
   return (
-    <Card className="card" sx={{ maxWidth: 300, minWidth: 300}}>
+    <Card className="cardSelection" sx={{ maxWidth: 300, minWidth: 300}}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState} from "react";
 import { useNavigate } from 'react-router-dom';
+import SelectionHome from '../selectionRestoHome/Selection'
 import bgImage from "../../ressource/video/food.mp4";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -11,6 +12,7 @@ import PredictionsOnInputChange  from '../autoComplete/InputSearch';
 import "./Home.css";
 import SelectResto from '../selectResto/SelectResto'
 import lottie from "lottie-web";
+import SelectionEte from "../selectionRestoHome/selectionEte/SelectionEte";
  
 
 export default function Home() {
@@ -25,7 +27,7 @@ export default function Home() {
 lottie.loadAnimation({
   container:container.current,
   renderer:'svg',
-  loop: true,
+  loop: false,
   autoplay:true,
   animationData:require('../../ressource/lottie/72651-food-text-animation.json')
   
@@ -45,25 +47,22 @@ useEffect(()=>{
     <>
       <Transition timeline={home} />
       <div className="home" ref={homeimg}>
-        <video autoPlay loop muted>
-          <source src={bgImage} type="video/mp4" />
-        </video>
      
-
+     
+<div  style={{ height:'60%', width:'40%', top:0, position:'absolute', marginLeft:'10%', display:"flex", justifyContent:'center', alignItems:'center',}}> <h1 className="titleHome" style={{ marginLeft:'6%', fontSize:'3.5rem'}}>HalalAssiette </h1>  <span ref={container}></span></div>
         <div className="text-box">
           <div style={{display:'flex', justifyContent:'center', alignItems:'center', width:'100%', height:'auto'}}>
             <div className='inputSearchHome'>
      
           <PredictionsOnInputChange  className='prediction' newLocation={(newLocation)=> console.log(newLocation)} adresseDemande={(adresseDemande)=> setAdresseDemande(true)}/>
           <SelectResto  />
-          <Button variant="contained" style={{marginLeft:10, width:'25%'}} startIcon={<SearchIcon />}>
+          <Button variant="contained" style={{marginLeft:10, width:'25%', paddingRight:'20px'}} startIcon={<SearchIcon />}>
         Trouver
       </Button>
             </div>
           </div>
        
-          {/* <h1>HALAL</h1> */}
-          {/* <div className="animation"ref={container}></div> */}
+    
            
           <div className="conteneur-text">
             <div style={{ display: "flex" }}>
@@ -74,8 +73,8 @@ useEffect(()=>{
             </div>
             <div>
               <span className="text2">
-                Tous les restaurants presenter sont agreer Halal <br></br> et
-                verifier par notre equipe
+               * Tous les restaurants presentés sont agrées Halal <br></br> et
+                verifiés par notre équipe.
               </span>
             </div>
           </div>
@@ -85,6 +84,20 @@ useEffect(()=>{
           <InstagramIcon style={{ color: "white" }} />
         </div>
       </div>
+      <div className="custom-shape-divider-bottom-1653555906">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+    </svg>
+</div>
+<SelectionHome/>
+<div className="custom-shape-divider-bottom-1653573471">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+    </svg>
+</div>
+<div> 
+  <SelectionEte/>
+</div>
     </>
   );
 }

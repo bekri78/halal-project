@@ -1,7 +1,7 @@
 import React from 'react';
 //import OpinionForme from '../OpinionForm/OpinionForm';
 import { Container, Col, Row } from 'react-bootstrap';
-import Logo from '../../ressource/img/logoAlphaB.png';
+import Logo from '../../ressource/img/halal-food-logo.png';
 import './Footer.css';
 import { useTranslation } from "react-i18next";
 function Footer(props) {
@@ -21,7 +21,7 @@ Les 10 meilleurs restaurants certifiés halal à {props.ville}</p>
                   <img className="logoFooter" alt="logo" src={Logo} />
                 </a>
                 <p className="mt-2 mb-3" id="textbottom">
-                  {'Alpha B'} <br></br>
+                  {'Halal Food'} <br></br>
                   {t("footer.title")}
                  
                 </p>

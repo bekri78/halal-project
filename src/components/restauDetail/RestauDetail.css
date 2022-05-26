@@ -1,0 +1,159 @@
+.rating-value {
+  font-size: 1.875rem;
+  font-weight: 400;
+  font-family: RalewayX, arial, sans-serif;
+  line-height: 1.2;
+}
+
+.css-ubtbcz {
+  font-size: 0.8125rem;
+  font-weight: 300;
+  font-family: RalewayX, arial, sans-serif;
+  font-style: normal;
+  line-height: 1.3846153846153846;
+}
+
+.css-1lnlsqc {
+  font-size: 1rem;
+  font-weight: 300;
+  font-family: RalewayX, arial, sans-serif;
+  font-style: normal;
+  line-height: 1.375;
+}
+
+.css-igdmea {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  vertical-align: text-bottom;
+  margin-right: 0.25rem;
+}
+
+.sanitaire {
+  position: relative;
+  font-family: RalewayX;
+  background: #eff7fa;
+  font-size: 1rem;
+  padding: 0.5rem;
+  grid-area: voucher;
+}
+
+.sanitaire:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "";
+  width: 0.25rem;
+  height: 100%;
+  background-color: #006399;
+}
+
+.vnu9I {
+  color: #000;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.5rem;
+}
+
+.avisTitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: RalewayX, arial, sans-serif;
+  line-height: 1.1666666666666667;
+  margin-bottom: 1.5rem;
+  color: hsl(0, 0%, 0%);
+}
+.titlecomment {
+  color: hsl(220, 9%, 26%);
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: RalewayX, arial, sans-serif;
+  font-style: normal;
+  line-height: 1.375;
+}
+
+.ouvertAujour {
+  margin-left: 1rem;
+  color: hsl(104, 38%, 42%);
+  text-align: center;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  font-family: RalewayX, arial, sans-serif;
+  font-style: normal;
+  line-height: 1.3846153846153846;
+  border-radius: 9999px;
+  padding: 0.125rem 0.5rem;
+  color: green.m;
+  background: hsl(220, 9%, 93%);
+  margin-bottom: 10px;
+}
+
+.titleRestoDetail {
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: RalewayX, arial, sans-serif;
+  line-height: 1.1666666666666667;
+}
+
+.conteneur-resto-marketing {
+  margin-bottom: 0.5rem;
+  border-left: 3px solid;
+  border-color: hsl(357, 77%, 45%);
+  margin: 3% 0 3% 0;
+}
+.restaurant-page-marketing-offer {
+  padding-left: 0.5rem;
+  margin: 0;
+  color: hsl(357, 77%, 45%);
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: RalewayX, arial, sans-serif;
+  font-style: normal;
+  line-height: 1.375;
+  display: inline-block;
+}
+
+.jumbotron {
+  background-color: var(--bs-light);
+  border-radius: 0.3rem;
+}
+
+.conteneur-avis {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+.conteneur-cadeaux {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 67rem;
+  margin: 0 auto;
+  padding: 1rem;
+  background: linear-gradient(
+    153.43deg,
+    hsl(104, 46%, 89%) 0%,
+    hsl(114, 63%, 97%) 100%
+  );
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 2%;
+}
+
+.conteneur-cadeaux-span1 {
+  margin: 0;
+  color: hsl(220, 9%, 26%);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.conteneur-cadeaux-span2 {
+  color: hsl(220, 9%, 26%);
+  font-size: 1rem;
+  font-weight: 300;
+}

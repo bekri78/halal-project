@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTheme } from "@mui/material/styles";
+import { useNavigate } from 'react-router-dom';
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -14,7 +15,8 @@ import MeetingRoomOutlinedIcon from "@mui/icons-material/MeetingRoomOutlined";
 import Popover from "@mui/material/Popover";
 
 export default function MediaControlCard(props) {
-  const theme = useTheme();
+  const url = `/${props.placeId}`
+  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handlePopoverOpen = (event) => {
@@ -26,11 +28,16 @@ export default function MediaControlCard(props) {
   };
 
   const open = Boolean(anchorEl);
+  const redirection = ()=>{
+
+    navigate(url);  
+  }
 
   return (
     <>
       <div className="cardBox1">
-        <Card className="card2">
+           <Card className="card2"  onClick={redirection} >
+       
           <CardMedia
             component="img"
             sx={{
@@ -43,7 +50,7 @@ export default function MediaControlCard(props) {
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
             }}
-            image={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${props.photoreference}&sensor=false&key=${props.apiKey} `}
+            image={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${props.photoreference}&sensor=false&key=${props.apiKey}`}
             alt="Photo reference"
           />
           <Box sx={{ display: "flex", flexDirection: "column", width: "60%" }}>
@@ -53,6 +60,7 @@ export default function MediaControlCard(props) {
                 variant="h6"
                 className="position-Start-text conteneur-carte"
               >
+                
                 <Button
                   variant="contained"
                   size="small"

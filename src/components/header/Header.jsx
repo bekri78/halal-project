@@ -34,7 +34,7 @@ export default function NavBare(props) {
     fixed="top"
   >
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-    <Navbar.Collapse id="responsive-navbar-nav" expand="lg">
+    <Navbar.Collapse id="responsive-navbar-nav" expand="lg" style={{justifyContent:'flex-end'}}>
       <Nav className="ml-auto  ">
         <Link to="./map"  style={navigation}>
           MAP

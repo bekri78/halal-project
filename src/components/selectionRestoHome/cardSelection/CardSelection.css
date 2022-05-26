@@ -1,0 +1,56 @@
+.cardFooterBtn {
+  display: flex;
+  justify-content: end;
+}
+
+.noteNameSelection {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cardSelection {
+  transition: transform 0.2s;
+}
+.cardSelection:hover {
+  -webkit-transition: all 200ms ease-in;
+  -webkit-transform: scale(1.01);
+  -ms-transition: all 200ms ease-in;
+  -ms-transform: scale(1.01);
+  -moz-transition: all 200ms ease-in;
+  -moz-transform: scale(1.01);
+  transition: all 200ms ease-in;
+  transform: scale(1.01);
+}
+.nomSelection {
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: RalewayX, arial, sans-serif;
+  line-height: 1.375;
+  color: hsl(0, 0%, 0%);
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  margin: 0;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+.noteSelection {
+  margin: auto;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: RalewayX, arial, sans-serif;
+  font-style: normal;
+  line-height: 1.375;
+  display: block;
+  color: hsl(0, 0%, 0%);
+  border-radius: 0.25rem;
+  padding: 0.0625rem calc(0.125rem + 0.25rem) 0;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: flex-start;
+  margin-left: 0.5rem;
+}
