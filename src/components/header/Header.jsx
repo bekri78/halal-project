@@ -12,6 +12,7 @@ const navigation = {
     padding: "8px",
     cursor: "pointer",
     transition: "all .2s linear",
+    textDecorationLine: "none"
   };
 export default function NavBare(props) {
     const [navbar, setNavbar] = useState(false);
@@ -37,15 +38,8 @@ export default function NavBare(props) {
     <Navbar.Collapse id="responsive-navbar-nav" expand="lg" style={{justifyContent:'flex-end'}}>
       <Nav className="ml-auto  ">
         <Link to="./map"  style={navigation}>
-          MAP
+          Accueil
         </Link>
-        <Link to="./"  style={navigation}>
-          Portfolio
-        </Link>
-        <Link to="./"  style={navigation}>
-          Skill
-        </Link>
-
         <Link to="./"  style={navigation}>
           A propos
         </Link>

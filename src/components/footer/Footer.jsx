@@ -54,15 +54,15 @@ Les 10 meilleurs restaurants certifiés halal à {props.ville}</p>
                   </li>
                   <li className="py-2">
                     <a href="https://solidarites-sante.gouv.fr/prevention-en-sante/sante-des-populations/enfants/article/les-troubles-du-langage-et-des-apprentissages">
-                      Ministère des solidarités
+                      Ministère des certification halal
                     </a>
                   </li>
                   <li className="py-2">
-                    <a href="https://www.ffdys.com/troubles-dys/dyslexie-et-dysorthographie">Fédération des Dys</a>
+                    <a href="https://www.ffdys.com/troubles-dys/dyslexie-et-dysorthographie">Fédération des Halal Boys</a>
                   </li>
 
                   <li className="py-2">
-                    <a href="https://www.dys-positif.fr/">Association DYS-POSITIF</a>
+                    <a href="https://www.dys-positif.fr/">Association halal pour tous</a>
                   </li>
                 </ul>
               </div>

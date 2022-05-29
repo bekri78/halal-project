@@ -7,8 +7,11 @@ import Col from "react-bootstrap/Col";
 import Cocktail from "../../../ressource/img/cocktailBanniere.png";
 import lottie from "lottie-web";
 import "./SelectionEte.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function SelectionEte() {
+  
   const container = useRef(null);
   useEffect(() => {
     lottie.loadAnimation({
@@ -18,6 +21,12 @@ export default function SelectionEte() {
       autoplay: true,
       animationData: require("../../../ressource/lottie/food-toss.json"),
     });
+  }, []);
+
+
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
   }, []);
   return (
     <Container>
@@ -29,7 +38,8 @@ export default function SelectionEte() {
           md={12}
           lg={12}
         >
-          <div className="conteneur-img-cocktail">
+          <div data-aos="fade-up"
+     data-aos-duration="1000" className="conteneur-img-cocktail">
             <img className="imgCocktail" src={Cocktail} alt="cocktail" />
           </div>
         </Col>

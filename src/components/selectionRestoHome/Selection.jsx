@@ -7,6 +7,8 @@ import Col from "react-bootstrap/Col";
 import FoodBanniere from '../../ressource/img/SELECTION ETE 2022.png'
 import lottie from "lottie-web";
 import "./Selection.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 
 export default function SelectionHome() {
@@ -21,7 +23,11 @@ export default function SelectionHome() {
     });
   }, []);
  
-   
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
+
   return (
     <div className="conteneur-selection">
       <Container  style={{paddingTop:'2%', paddingBottom:'4%'}}>
@@ -33,7 +39,8 @@ export default function SelectionHome() {
           md={12}
           lg={12}
         >
-          <div className="conteneur-img-cocktail">
+          <div  data-aos="fade-up"
+     data-aos-duration="1000" className="conteneur-img-cocktail">
             <img className="imgCocktail" src={FoodBanniere} alt="cocktail" />
           </div>
         </Col>

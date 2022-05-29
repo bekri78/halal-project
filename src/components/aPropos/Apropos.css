@@ -1,0 +1,53 @@
+.Apropos_h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: RalewayX, arial, sans-serif;
+  line-height: 1.1666666666666667;
+  text-align: start;
+}
+
+.Apropos_p {
+  font-weight: 300;
+  background-color: #fff;
+  padding-bottom: 0;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  text-align: start;
+  color: #000;
+  margin: 1.5rem;
+}
+
+.Apropos_h2_restaurateur {
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: RalewayX, arial, sans-serif;
+  line-height: 1.1666666666666667;
+  text-align: start;
+  margin-bottom: 3%;
+}
+
+.conteneur_restaurateur {
+  padding: 0.7rem;
+
+  min-width: 14rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.conteneur_restaurateur > h4,
+p {
+  text-align: start;
+}
+
+.conteneur_restaurateur > h4 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.2;
+  padding-top: 1%;
+  font-family: RalewayX, arial, sans-serif;
+}
+
+.restaurateur {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 3px 3px rgba(0, 0, 0, 0.23);
+}

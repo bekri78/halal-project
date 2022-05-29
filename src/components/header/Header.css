@@ -17,6 +17,10 @@
   transition: all 0.2s linear;
 }
 
+.ml-auto {
+  margin-right: 1%;
+}
+
 /* .dropdown-menu {} */
 
 @media (max-width: 768px) {

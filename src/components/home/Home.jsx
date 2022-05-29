@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState} from "react";
 import { useNavigate } from 'react-router-dom';
 import SelectionHome from '../selectionRestoHome/Selection'
-import bgImage from "../../ressource/video/food.mp4";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import Button from '@mui/material/Button';
@@ -13,6 +12,8 @@ import "./Home.css";
 import SelectResto from '../selectResto/SelectResto'
 import lottie from "lottie-web";
 import SelectionEte from "../selectionRestoHome/selectionEte/SelectionEte";
+import AOS from "aos";
+import "aos/dist/aos.css";
  
 
 export default function Home() {
@@ -43,16 +44,22 @@ useEffect(()=>{
 
  },[adresseDemande])
 
+ useEffect(() => {
+  AOS.init();
+  AOS.refresh();
+}, []);
+
   return (
     <>
       <Transition timeline={home} />
       <div className="home" ref={homeimg}>
      
      
-<div  style={{ height:'60%', width:'40%', top:0, position:'absolute', marginLeft:'10%', display:"flex", justifyContent:'center', alignItems:'center',}}> <h1 className="titleHome" style={{ marginLeft:'6%', fontSize:'3.5rem'}}>HalalAssiette </h1>  <span ref={container}></span></div>
-        <div className="text-box">
+<div    style={{ height:'60%', width:'40%', top:0, position:'absolute', marginLeft:'10%', display:"flex", justifyContent:'center', alignItems:'center',}}> <h1 className="titleHome" style={{ marginLeft:'6%', fontSize:'3.5rem'}}>HalalAssiette </h1>  <span ref={container}></span></div>
+        <div className="text-box" data-aos="fade-up"
+     data-aos-duration="1000">
           <div style={{display:'flex', justifyContent:'center', alignItems:'center', width:'100%', height:'auto'}}>
-            <div className='inputSearchHome'>
+            <div    className='inputSearchHome'>
      
           <PredictionsOnInputChange  className='prediction' newLocation={(newLocation)=> console.log(newLocation)} adresseDemande={(adresseDemande)=> setAdresseDemande(true)}/>
           <SelectResto  />
@@ -98,6 +105,7 @@ useEffect(()=>{
 <div> 
   <SelectionEte/>
 </div>
+ 
     </>
   );
 }

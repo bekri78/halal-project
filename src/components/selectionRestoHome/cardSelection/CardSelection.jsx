@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -8,10 +8,21 @@ import Typography from "@mui/material/Typography";
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import LocalBarIcon from '@mui/icons-material/LocalBar';
 import "./CardSelection.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function CardSelection(props) {
+
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
+
   return (
-    <Card className="cardSelection" sx={{ maxWidth: 300, margin: 0.5, cursor: "pointer", boxShadow: 4,  }}>
+    <Card  data-aos="fade-zoom-in"
+    data-aos-easing="ease-in-back"
+    data-aos-delay="300"
+    data-aos-offset="0" className="cardSelection" sx={{ maxWidth: 300, margin: 0.5, cursor: "pointer", boxShadow: 4,  }}>
       <CardMedia
         component="img"
         height="140"

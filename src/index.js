@@ -3,7 +3,7 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {   BrowserRouter as Router } from "react-router-dom";
+import {   HashRouter  as Router } from "react-router-dom";
 import { I18nextProvider } from "react-i18next";
 import i18next from "i18next";
  
@@ -28,7 +28,7 @@ const root = createRoot(container);
 root.render( 
 <Router>
 <I18nextProvider i18n={i18next}>
-  <App  />
+  <App />
   </I18nextProvider>
    </Router>);
  
