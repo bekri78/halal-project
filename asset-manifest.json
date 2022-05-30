@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/halal-project/static/css/main.076fafd9.css",
-    "main.js": "/halal-project/static/js/main.e7c96ea9.js",
+    "main.css": "/halal-project/static/css/main.f688c1a3.css",
+    "main.js": "/halal-project/static/js/main.a75c0e60.js",
     "static/js/787.130d8f2b.chunk.js": "/halal-project/static/js/787.130d8f2b.chunk.js",
     "static/media/SELECTION ETE 2022.png": "/halal-project/static/media/SELECTION ETE 2022.e916bd7bcf3e9b95d466.png",
     "static/media/cocktailBanniere.png": "/halal-project/static/media/cocktailBanniere.6829450c5d91c16ec16e.png",
@@ -9,14 +9,14 @@
     "static/media/restaurateur.webp": "/halal-project/static/media/restaurateur.ac73bb4e465ed96fe438.webp",
     "static/media/halal-food-logo.png": "/halal-project/static/media/halal-food-logo.99e1a4412a4682a783e9.png",
     "static/media/loc.svg": "/halal-project/static/media/loc.af3dfd8061601d041e81f874a146b0a1.svg",
-    "static/media/cadeau.svg": "/halal-project/static/media/cadeau.9960a95072d073dc96949b9f1136cdc5.svg",
+    "static/media/cadeau.svg": "/halal-project/static/media/cadeau.7f448aec5ad8d7af8f8635e51a9298e7.svg",
     "index.html": "/halal-project/index.html",
-    "main.076fafd9.css.map": "/halal-project/static/css/main.076fafd9.css.map",
-    "main.e7c96ea9.js.map": "/halal-project/static/js/main.e7c96ea9.js.map",
+    "main.f688c1a3.css.map": "/halal-project/static/css/main.f688c1a3.css.map",
+    "main.a75c0e60.js.map": "/halal-project/static/js/main.a75c0e60.js.map",
     "787.130d8f2b.chunk.js.map": "/halal-project/static/js/787.130d8f2b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.076fafd9.css",
-    "static/js/main.e7c96ea9.js"
+    "static/css/main.f688c1a3.css",
+    "static/js/main.a75c0e60.js"
   ]
 }
