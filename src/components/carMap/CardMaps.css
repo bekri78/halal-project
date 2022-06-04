@@ -68,6 +68,7 @@
   font-family: RalewayX, arial, sans-serif;
   line-height: 1.2;
   margin-top: 2%;
+  text-align: center;
 }
 
 .conteneur-question {
@@ -86,4 +87,15 @@
   background-color: rgb(255, 255, 255);
   z-index: 2;
   box-shadow: rgb(0 0 0 / 12%) -0.0625rem 0.1875rem 0.375rem;
+}
+
+.conteneur_logo_card {
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  top: 0;
+}
+
+.conteneur_logo_card > img {
+  width: 25%;
 }

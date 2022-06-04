@@ -27,6 +27,7 @@ import StarsIcon from "@mui/icons-material/Stars";
 import HalalLogo from "../../ressource/img/halal-food-logo.png";
 import Cadeau from "../../ressource/img/cadeau.svg";
 import "./RestauDetail.css";
+ 
 
 import Footer from "../footer/Footer";
 export default function RestauDetail(props) {
@@ -76,6 +77,7 @@ export default function RestauDetail(props) {
 
   return (
     <>
+     
       <Container>
         <Row
           style={{

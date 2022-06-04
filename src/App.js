@@ -1,5 +1,6 @@
 import React from "react";
 import NavBare from "./components/header/Header";
+import ResponsiveAppBar from './components/muiNavBar/MuiNavBar'
 import Home from "./components/home/Home";
 import CardMaps from "./components/carMap/CardMaps";
 import RestauDetail from "./components/restauDetail/RestauDetail";
@@ -13,9 +14,9 @@ function App() {
     <div className="App">
       
       <Routes>
-        <Route exact path="/" element={ <><NavBare/><Home /> <Apropos/><Footer/></>} />
-        <Route path="/map" element={<><CardMaps /> <Apropos/><Footer/></>} />
-        <Route path="/:id" element={<><RestauDetail /> <Apropos/><Footer/></>} />
+        <Route exact path="/" element={ <> <ResponsiveAppBar/><Home /><Apropos/><Footer/></>} />
+        <Route path="/Carte" element={<CardMaps/>} />
+        <Route path="/:id" element={<><RestauDetail /><Apropos/></>} />
       </Routes>
     </div>
   );

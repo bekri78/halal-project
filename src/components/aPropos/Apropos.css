@@ -35,8 +35,10 @@
   flex-direction: column;
 }
 
-.conteneur_restaurateur > h4,
-p {
+.conteneur_restaurateur > h4 {
+  text-align: start;
+}
+.conteneur_restaurateur > p {
   text-align: start;
 }
 

@@ -11,12 +11,32 @@
   background-color: #f2f6f4;
 }
 
-.titleHome {
-  font-family: "IBM Plex Sans Arabic", sans-serif;
+.home-avatar {
+  min-height: 76vh;
+  width: 100%;
+  opacity: 1;
+  background: url("../../ressource/img/avatar.jpg") center top / cover
+    transparent;
+  color: rgb(52, 71, 103);
+  box-shadow: none;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin: auto;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.titleHome {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 3rem;
+  line-height: 1.25;
+  font-weight: 700;
+  opacity: 1;
+  text-transform: none;
+  vertical-align: unset;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  letter-spacing: -0.125px;
+  margin: 0px 0px -10px 0px;
 }
 
 .name-club {
@@ -31,11 +51,11 @@
 .text-box {
   color: #fff;
   position: absolute;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
   margin-left: 5%;
   padding: 2%;
   border-radius: 5px;
-  margin-top: 30px;
+  margin-top: 6%;
   padding-bottom: 0;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
@@ -70,7 +90,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 30px;
+  margin-top: 15px;
   padding-bottom: 4%;
 }
 .animation {
@@ -84,7 +104,7 @@
   border: 2px solid #fff;
   display: flex;
   align-items: center;
-  background-color: black;
+  background-color: rgb(52, 71, 103);
 }
 .text-box a span {
   font-size: 30px;
@@ -105,8 +125,16 @@
   align-items: center;
 }
 .text2 {
-  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  color: black;
+  margin: 0px 2px 0px 8px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  opacity: 1;
+  vertical-align: unset;
+  text-decoration: none;
+  color: rgb(52, 71, 103);
+  letter-spacing: -0.125px;
+  font-weight: 400;
 }
 
 .inputSearchHome {
@@ -127,27 +155,6 @@
 
 .prediction {
   background-color: #fff !important;
-}
-
-.custom-shape-divider-bottom-1653555906 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  transform: rotate(180deg);
-}
-
-.custom-shape-divider-bottom-1653555906 svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 183px;
-}
-
-.custom-shape-divider-bottom-1653555906 .shape-fill {
-  fill: #edaa5f;
 }
 
 .custom-shape-divider-bottom-1653573471 {

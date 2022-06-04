@@ -25,6 +25,8 @@ import markerIcon2 from "../../ressource/Marker/marker-icon-2x.png";
 import markerIcon from "../../ressource/Marker/marker-icon.png";
 import markerShadow from "../../ressource/Marker/marker-shadow.png";
 import { Autocomplete } from "@mui/material";
+import Apropos from "../aPropos/Apropos";
+import Logo from '../../ressource/img/halal-food-logo.png'
 const key = "AIzaSyAURsom7c-jmbNERN0wVqb4OzVten2Hy24"; // clef google map api
 
 delete L.Icon.Default.prototype._getIconUrl;
@@ -120,6 +122,9 @@ export default function CardMaps(props) {
 
   return (
     <>
+    <div className="conteneur_logo_card">
+      <img src={Logo} alt="logo"/>
+    </div>
       <Container fluid id="map">
         <Row>
           <Col
@@ -289,11 +294,13 @@ export default function CardMaps(props) {
             </Col>
           </Row>
         </Container>
+
+        
         <div style={{ marginTop: "2%" }}>
           <Divider variant="middle" />
         </div>
         <Row className="justify-content-center">
-          <Col className="conteneur-question" xs={12} sm={12} md={12} lg={12}>
+          <Col className="conteneur-question" xs={10} sm={10} md={10} lg={10}>
             <div className="questionFrequente">
               <p className="titleQuestion">Questions Fréquentes</p>
               <SimpleAccordion />
@@ -301,6 +308,7 @@ export default function CardMaps(props) {
           </Col>
         </Row>
       </Container>
+      <Apropos/>
       <Footer ville={ville[1]} />
     </>
   );
