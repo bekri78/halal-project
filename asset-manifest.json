@@ -1,23 +1,28 @@
 {
   "files": {
-    "main.css": "/halal-project/static/css/main.6fc51dfa.css",
-    "main.js": "/halal-project/static/js/main.afaf9673.js",
+    "main.css": "/halal-project/static/css/main.8bf405d9.css",
+    "main.js": "/halal-project/static/js/main.4b332476.js",
     "static/js/787.130d8f2b.chunk.js": "/halal-project/static/js/787.130d8f2b.chunk.js",
-    "static/media/montagnre.jpeg": "/halal-project/static/media/montagnre.bdcdfadc0dacb9bc5f23.jpeg",
-    "static/media/cocktailBanniere.png": "/halal-project/static/media/cocktailBanniere.6829450c5d91c16ec16e.png",
     "static/media/avatar.jpg": "/halal-project/static/media/avatar.d0c8ddca68c87c23fe91.jpg",
+    "static/media/eat.jpg": "/halal-project/static/media/eat.586097712fcf6d3a368c.jpg",
+    "static/media/patterne-img.svg": "/halal-project/static/media/patterne-img.d6471bace81c3ada86db50ecb4e28f92.svg",
+    "static/media/halal-europe-removebg-preview.png": "/halal-project/static/media/halal-europe-removebg-preview.3781e3d83da8b4d49ffa.png",
+    "static/media/certification_m_halal-removebg-preview.png": "/halal-project/static/media/certification_m_halal-removebg-preview.b519a0afc6597b74ce95.png",
     "static/media/homePageImg.webp": "/halal-project/static/media/homePageImg.9c15e04742b9881b58fe.webp",
+    "static/media/halal-logo-certif-removebg-preview.png": "/halal-project/static/media/halal-logo-certif-removebg-preview.8317daa76862222c3fd6.png",
+    "static/media/hala-certification-logo.webp": "/halal-project/static/media/hala-certification-logo.8c295de4968633093cc6.webp",
+    "static/media/avs.png": "/halal-project/static/media/avs.69fd389fd90247a5b8b7.png",
     "static/media/restaurateur.webp": "/halal-project/static/media/restaurateur.ac73bb4e465ed96fe438.webp",
     "static/media/halal-food-logo.png": "/halal-project/static/media/halal-food-logo.99e1a4412a4682a783e9.png",
     "static/media/loc.svg": "/halal-project/static/media/loc.af3dfd8061601d041e81f874a146b0a1.svg",
     "static/media/cadeau.svg": "/halal-project/static/media/cadeau.7f448aec5ad8d7af8f8635e51a9298e7.svg",
     "index.html": "/halal-project/index.html",
-    "main.6fc51dfa.css.map": "/halal-project/static/css/main.6fc51dfa.css.map",
-    "main.afaf9673.js.map": "/halal-project/static/js/main.afaf9673.js.map",
+    "main.8bf405d9.css.map": "/halal-project/static/css/main.8bf405d9.css.map",
+    "main.4b332476.js.map": "/halal-project/static/js/main.4b332476.js.map",
     "787.130d8f2b.chunk.js.map": "/halal-project/static/js/787.130d8f2b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6fc51dfa.css",
-    "static/js/main.afaf9673.js"
+    "static/css/main.8bf405d9.css",
+    "static/js/main.4b332476.js"
   ]
 }
