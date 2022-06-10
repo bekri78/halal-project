@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap");
+.containerBadge {
+  flex-basis: 50%;
+  -webkit-box-flex: 0;
+  flex-grow: 0;
+  max-width: 50%;
+}
+
+.badgeContente {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+  flex-shrink: 0;
+  margin-bottom: 16px;
+}
+
+.badgeContente > span {
+  height: auto;
+  padding: 0.55em 0.9em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border: none;
+  border-radius: 0.5rem;
+  background: rgb(174, 206, 247);
+  color: rgb(9, 91, 198);
+  position: relative;
+  transform: none;
+}
+
+.badgeRestoH2 {
+  margin: 0px;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 2.25rem;
+  line-height: 1.3;
+  opacity: 1;
+  text-transform: none;
+  vertical-align: unset;
+  text-decoration: none;
+  color: rgb(52, 71, 103);
+  letter-spacing: -0.125px;
+  font-weight: 700;
+}
+
+.badgeTexte {
+  margin: 0px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.625;
+  opacity: 1;
+  text-transform: none;
+  vertical-align: unset;
+  text-decoration: none;
+  color: rgb(123, 128, 154);
+  letter-spacing: -0.125px;
+}
+.container-title-texte-column {
+  position: sticky;
+  top: 100px;
+  opacity: 1;
+  background: transparent;
+  color: rgb(52, 71, 103);
+  box-shadow: none;
+  padding-bottom: 48px;
+}
+.container-title-texte-column > h3 {
+  margin: 0px 0px 8px;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 1.875rem;
+  line-height: 1.375;
+  opacity: 1;
+  text-transform: none;
+  vertical-align: unset;
+  text-decoration: none;
+  color: rgb(52, 71, 103);
+  letter-spacing: -0.125px;
+  font-weight: 700;
+}
+.container-title-texte-column > p {
+  margin: 0px 0px 8px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding-right: 16px;
+  opacity: 1;
+  text-transform: none;
+  vertical-align: unset;
+  text-decoration: none;
+  color: rgb(123, 128, 154);
+  letter-spacing: -0.125px;
+  font-weight: 400;
+}
+
+.css-h8f6pa {
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+  opacity: 1;
+  background: transparent;
+  color: rgb(52, 71, 103);
+  box-shadow: none;
+}
+
+.title-carte-test {
+  margin: 0px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.625;
+  opacity: 1;
+  text-transform: none;
+  vertical-align: unset;
+  text-decoration: none;
+  color: rgb(52, 71, 103);
+  letter-spacing: -0.125px;
+  font-weight: 700;
+}
+
+.span-carte-test {
+  margin: 0px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  opacity: 1;
+  text-transform: none;
+  vertical-align: unset;
+  text-decoration: none;
+  color: rgb(123, 128, 154);
+  letter-spacing: -0.125px;
+  font-weight: 400;
+}

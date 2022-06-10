@@ -40,7 +40,6 @@ export default function PredictionsOnInputChange(props) {
 
   const handlePredictionSelection = (e, prediction) => {
     e.preventDefault();
-    console.log(prediction.description);
     setSelectedPrediction(prediction.description);
     setSearchValue("");
   };

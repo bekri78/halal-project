@@ -13,7 +13,10 @@ import SelectResto from "../selectResto/SelectResto";
 import lottie from "lottie-web";
 import SelectionEte from "../selectionRestoHome/selectionEte/SelectionEte";
 import AOS from "aos";
+import paterne from "../../ressource/img/patterne-img.svg";
 import "aos/dist/aos.css";
+import Ville from "../ville/Ville";
+import Avis from "../avis/Avis";
 
 export default function Home() {
   const container = useRef(null);
@@ -35,7 +38,7 @@ export default function Home() {
   useEffect(() => {
     if (adresseDemande === true) {
       console.log("redirection page map");
-      navigate("/map");
+      navigate("/Carte");
     }
   }, [adresseDemande]);
 
@@ -62,10 +65,7 @@ export default function Home() {
         >
           {" "}
           {/* <h1 className="titleHome">Halal </h1>{" "} */}
-          <span
-            style={{ height: "40%", width:'40%'}}
-            ref={container}
-          ></span>
+          <span style={{ height: "40%", width: "40%" }} ref={container}></span>
         </div>
         <div className="text-box" data-aos="fade-up" data-aos-duration="1000">
           <div
@@ -86,7 +86,12 @@ export default function Home() {
               <SelectResto />
               <Button
                 variant="contained"
-                style={{ marginLeft: 10, width: "28%", paddingRight: 20, backgroundColor:"rgb(52, 71, 103)" }}
+                style={{
+                  marginLeft: 10,
+                  width: "28%",
+                  paddingRight: 20,
+                  backgroundColor: "rgb(52, 71, 103)",
+                }}
                 startIcon={<SearchIcon />}
               >
                 Trouver
@@ -120,22 +125,53 @@ export default function Home() {
       </div>
 
       <SelectionHome />
-      <div className="custom-shape-divider-bottom-1653573471">
-        <svg
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-            class="shape-fill"
-          ></path>
-        </svg>
-      </div>
+
       <div>
         <SelectionEte />
       </div>
+      <div className="container-banniere">
+        <img src={paterne} className="banniere-img" alt="banniere" />
+
+        <div className="container-info-home">
+          <div className="container-el-home">
+            <h2
+              data-aos="fade-down"
+              data-aos-easing="linear"
+              data-aos-duration="800"
+            >
+              Account Pages for beautiful webapps
+            </h2>
+            <p
+              data-aos="fade-down"
+              data-aos-easing="linear"
+              data-aos-duration="800"
+            >
+              We created many examples for pages like Signup, Signin, Forgot
+              Password, 2FA Authentification and so on. Just choose between a
+              Basic Design, an illustration or a cover and you are good to go!
+            </p>
+            <div
+              data-aos="fade-down"
+              data-aos-easing="linear"
+              data-aos-duration="800"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+                margin: "auto",
+                width: "100%",
+              }}
+            >
+              <Button variant="contained">View Pages</Button>
+
+              <Button variant="text">View signup Pages</Button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Ville/>
+      <Avis/>
     </>
   );
 }

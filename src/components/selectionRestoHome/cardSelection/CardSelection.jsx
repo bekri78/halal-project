@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import LocalBarIcon from '@mui/icons-material/LocalBar';
+import FoodBankOutlinedIcon from '@mui/icons-material/FoodBankOutlined';
 import "./CardSelection.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -22,11 +23,11 @@ export default function CardSelection(props) {
     <Card  data-aos="fade-zoom-in"
     data-aos-easing="ease-in-back"
     data-aos-delay="300"
-    data-aos-offset="0" className="cardSelection" sx={{ maxWidth: 300, margin: 0.5, cursor: "pointer", boxShadow: 4,  }}>
+    data-aos-offset="0" className="cardSelection" sx={{ maxWidth: 250, margin: 1, cursor: "pointer", boxShadow: 4,  }}>
       <CardMedia
         component="img"
-        height="140"
-        image={props.image}
+        height="100"
+        image={props.data}
         alt="green iguana"
       />
       <CardContent>
@@ -36,14 +37,14 @@ export default function CardSelection(props) {
           variant="h5"
           component="div"
         >
-        <div style={{display:'flex', justifyContent:'center', alignItems:'center', width:'40%'}}> {props.bar ? <LocalBarIcon/> : <StorefrontIcon/> }  <p className="nomSelection">{props.nom}</p></div>   
+        <div style={{display:'flex', justifyContent:'center', alignItems:'center', width:'40%'}}> {props.bar ? <LocalBarIcon/> : <FoodBankOutlinedIcon/> }  <p className="nomSelection">{props.nom}</p></div>   
         <div style={{display:'flex', justifyContent:'flex-end'}}><p className="noteSelection">{props.note}/5</p></div>  
         </Typography>
-        <Typography variant="body2" color="text.secondary"> {props.adress}</Typography>
+        <Typography variant="body2" color="text.secondary"> {props.ville}</Typography>
 
         <Typography variant="body2" color="text.secondary">
           Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          
         </Typography>
       </CardContent>
       <CardActions className="cardFooterBtn">

@@ -38,8 +38,7 @@
 }
 
 .conteneur-number {
-  padding-top: 15px;
-  padding-bottom: 24px;
+  padding: 24px;
   opacity: 1;
   background: transparent;
   color: rgb(52, 71, 103);
@@ -47,9 +46,7 @@
 }
 
 .conteneur-number-2 {
-  flex-basis: 75%;
   -webkit-box-flex: 0;
-  flex-grow: 0;
   max-width: 75%;
   display: flex;
   justify-content: center;
@@ -155,4 +152,16 @@
   from {
     --num: 0;
   }
+}
+
+.conteneur-grid-resto-selection {
+  padding-top: 48px;
+  padding-bottom: 48px;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  opacity: 1;
+  background: transparent;
+  color: rgb(52, 71, 103);
+  box-shadow: none;
+  width: 100%;
 }

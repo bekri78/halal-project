@@ -16,6 +16,9 @@ import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ArticleIcon from "@mui/icons-material/Article";
 import ContactPageIcon from "@mui/icons-material/ContactPage";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
 import "./MuiNavBar.css";
 
 const settings = ["Profil", "Tableau de Bord", "Deconnexion"];
@@ -23,6 +26,7 @@ const settings = ["Profil", "Tableau de Bord", "Deconnexion"];
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [themeMode, setThemeMode] = React.useState(false);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -39,10 +43,14 @@ const ResponsiveAppBar = () => {
     setAnchorElUser(null);
   };
 
+  const themeSelection = () => {
+    setThemeMode(!themeMode);
+  };
+
   return (
     <AppBar className="container-mui" color="primary" position="fixed">
       <Container maxWidth="xl">
-        <Toolbar disableGutters style={{ maxHeight:41, minHeight:41}}>
+        <Toolbar disableGutters style={{ maxHeight: 41, minHeight: 41 }}>
           <RestaurantMenuIcon
             sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
           />
@@ -149,7 +157,7 @@ const ResponsiveAppBar = () => {
             LOGO
           </Typography>
           <Box
-            style={{ justifyContent: "flex-end", marginRight:30 }}
+            style={{ justifyContent: "flex-end", marginRight: 30 }}
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
           >
             <Button
@@ -187,12 +195,32 @@ const ResponsiveAppBar = () => {
                 </span>
               </Link>
             </Button>
+
+            <Button
+              onClick={themeSelection}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              <span className="link-appBar">
+                {themeMode ? (
+                  <>
+                    {" "}
+                    <LightModeIcon /> Light
+                  </>
+                ) : (
+                  <>
+                    {" "}
+                  <DarkModeIcon /> Dark{" "}
+                  </>
+                )}
+              </span>
+            </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title="Parametre Compte">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
+                <AccountCircleIcon />
               </IconButton>
             </Tooltip>
             <Menu

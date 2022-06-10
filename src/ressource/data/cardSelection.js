@@ -19,7 +19,7 @@ const pictureData = [
         image:"https://theranch.fr/wp-content/uploads/2019/05/Viande_halal_-%C3%A0_paris_11%C3%A8me.jpg",
         ville:"75010 Paris",
         note: "4",
-        nom:"La Palme",
+        nom:"Bosphore",
         type:"indien",
     
     },

@@ -54,7 +54,6 @@ export default function CardMaps(props) {
     const presentLocation = centerMap !== null;
     // si mes state lat et lng sont different de nul appel ma function resquestApi
     if (presentLocation) {
-      console.log(data);
       resquestApi();
     } else {
       setCenterMap(data);
@@ -71,7 +70,6 @@ export default function CardMaps(props) {
       const resquest = await fetch(`${cors}${encodedEndpoint}`);
       const json = await resquest.json();
       const { results } = JSON.parse(json.contents);
-      console.log(results);
       setRestaurant(results);
       setRestaurantCopie(results);
     } catch (e) {
@@ -212,11 +210,7 @@ export default function CardMaps(props) {
                 ))}
             </Col>
             <Col xs={12} sm={5} md={5} lg={5}>
-              {/* <Arrondissements
-            valueArrondissement={(newValue) => {
-              rating(newValue);
-            }}
-          /> */}
+
               {centerMap && (
                 <MapContainer
                   center={centerMap}
