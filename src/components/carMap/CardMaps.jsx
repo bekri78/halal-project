@@ -70,6 +70,7 @@ export default function CardMaps(props) {
       const resquest = await fetch(`${cors}${encodedEndpoint}`);
       const json = await resquest.json();
       const { results } = JSON.parse(json.contents);
+      console.log(results)
       setRestaurant(results);
       setRestaurantCopie(results);
     } catch (e) {

@@ -5,6 +5,7 @@ const pictureData = [
        ville:"75001 Paris",
         note: "5",
         nom:"bekbek",
+        texte:  "Preparez votre voyage parfait au soleil de miami",
         type:"Japonais",
     },
     {
@@ -12,6 +13,7 @@ const pictureData = [
         ville:"92020 Nanterre",
         note: "4.1",
         nom:"babaa",
+        texte:  "Preparez votre voyage parfait au soleil de miami",
         type:"Turc",
      
     },
@@ -20,6 +22,7 @@ const pictureData = [
         ville:"75010 Paris",
         note: "4",
         nom:"Bosphore",
+        texte:  "Preparez votre voyage parfait au soleil de miami",
         type:"indien",
     
     },
@@ -28,6 +31,16 @@ const pictureData = [
         ville:"93200 Saint-Denis",
         note: "4.3",
         nom:"Basilic",
+        texte:  "Preparez votre voyage parfait au soleil de miami",
+        type:"Food",
+    
+    },
+    {
+        image:"https://ledinapolifr.files.wordpress.com/2019/03/bd3f4d1d-9afe-41be-bfe4-56546993ef78.jpg",
+        ville:"93200 Saint-Denis",
+        note: "4.3",
+        nom:"Basilic",
+        texte:  "Preparez votre voyage parfait au soleil de miami",
         type:"Food",
     
     }

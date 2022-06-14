@@ -122,7 +122,7 @@
 .number-restaurant-500,
 .number-restaurant-200,
 .number-restaurant-20 {
-  animation: counter 4.5s ease-in-out;
+  animation: counter 2.5s ease-in-out;
   counter-reset: num var(--num);
 }
 

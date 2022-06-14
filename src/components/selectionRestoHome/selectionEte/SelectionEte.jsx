@@ -46,9 +46,9 @@ export default function SelectionEte() {
             <div className="badgeContente">
               <span> Categories exclusives</span>
             </div>
-            <h2 className="badgeRestoH2">Les restaurants par catégories</h2>
+            <h2 className="badgeRestoH2">Les restaurants par catégorie</h2>
             <p className="badgeTexte">
-             Nous vous proposons des restaurants de differrents gouts et horizon afin que puissez trouvez votre bonheur.
+             Nous vous proposons des restaurants de différrents horizons pour que vous puissiez trouvez votre bonheur.
             </p>
           </div>
         </Col>
@@ -142,7 +142,7 @@ export default function SelectionEte() {
               </Box>
             </Grid>
             <Grid item={true} xs={12} lg={9}>
-              <Grid container spacing={3}>
+              <Grid container spacing={1}>
                {
                cardFrance && ( cardFrance.map((el, index)=>(
                  <BoxCard

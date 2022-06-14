@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 
 import AutoCompleteResto from "../autoCompleteResto/AutoCompleteResto";
 import PredictionsOnInputChange from "../autoComplete/InputSearch";
-import SwipeableTextMobileStepper from "../carousel/Carousel";
 import SteperPrice from "../steperPrice/SteperPrice";
 import Divider from "@mui/material/Divider";
 import Container from "react-bootstrap/Container";
@@ -26,8 +25,11 @@ import EuroIcon from "@mui/icons-material/Euro";
 import StarsIcon from "@mui/icons-material/Stars";
 import HalalLogo from "../../ressource/img/halal-food-logo.png";
 import Cadeau from "../../ressource/img/cadeau.svg";
+import StarIcon from '@mui/icons-material/Star';
+import Avatar from '@mui/material/Avatar';
+
+import imgBoss from '../../ressource/img/img-boss-test.jpg'
 import "./RestauDetail.css";
- 
 
 import Footer from "../footer/Footer";
 export default function RestauDetail(props) {
@@ -48,7 +50,7 @@ export default function RestauDetail(props) {
       const json = await resquest.json();
       const resultat = await JSON.parse(json.contents);
       setRestoDetail(resultat.result);
-      console.log(resultat.result);
+      console.log("detail:", resultat.result);
     } catch (e) {
       console.log(`Error : ${e}.`);
     }
@@ -77,7 +79,6 @@ export default function RestauDetail(props) {
 
   return (
     <>
-     
       <Container>
         <Row
           style={{
@@ -117,11 +118,14 @@ export default function RestauDetail(props) {
           <Col xs={12} sm={12} md={12} lg={12}>
             <div className="conteneur-cadeaux">
               <div>
-                <img src={Cadeau} alt="cadeau" style={{marginRight:'5px'}} />
+                <img src={Cadeau} alt="cadeau" style={{ marginRight: "5px" }} />
               </div>
               <div>
                 <div className="conteneur-cadeaux-span1">
-                  <span> NOUVEAU ! Découvrez les Cartes Cadeaux Halal Food :</span>
+                  <span>
+                    {" "}
+                    NOUVEAU ! Découvrez les Cartes Cadeaux Halal Food :
+                  </span>
                 </div>
                 <div className="conteneur-cadeaux-span2">
                   <span>
@@ -134,6 +138,101 @@ export default function RestauDetail(props) {
             </div>
           </Col>
         </Row>
+        <Row>
+          <Col>
+            <div>
+              <h1 className="titleResto"> **{restoDetail.name} </h1>
+            </div>
+            <div  style={{paddingLeft:'80px', paddingRight:'80px'}} >
+              <span style={{ display:'flex', justifyContent:'start', alignItems:'center'}}>
+                {" "}
+                <span className="commentairesNumber" ><StarIcon fontSize="small"/>{restoDetail.rating}</span> - {" "}
+                {restoDetail.reviews ? (
+                  <p className="commentairesNumber commentaireDecoration">{restoDetail.reviews.length} commentaires</p>
+                ) : (
+                  <p className="commentairesNumber commentaireDecoration">Aucun commentaires</p>
+                )}{" "}  -
+                <p className="commentairesNumber commentaireDecoration">{ restoDetail.formatted_address}</p>  
+              </span>
+            </div>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col xs={12} sm={12} md={12} lg={12}>
+
+            { restoDetail.photos && ( 
+            <div className="containerGrid">
+              <div
+                className="ImgPrincipal"
+                style={{
+                  backgroundImage: `url( https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${restoDetail.photos[0].photo_reference}&sensor=false&key=AIzaSyATaVEl_K2D9IcWPICwcog27_C1TsOQGr0)`,
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                }}
+              >
+                {" "}
+              </div>
+              <div
+                className="ImgUn"
+                style={{
+                  backgroundImage: `url( https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${restoDetail.photos[1].photo_reference}&sensor=false&key=AIzaSyATaVEl_K2D9IcWPICwcog27_C1TsOQGr0)`,
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div>
+              <div
+                className="ImgDeux"
+                style={{
+                  backgroundImage: `url( https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${restoDetail.photos[2].photo_reference}&sensor=false&key=AIzaSyATaVEl_K2D9IcWPICwcog27_C1TsOQGr0)`,
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div>
+              <div
+                className="ImgTrois"
+                style={{
+                  backgroundImage: `url( https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${restoDetail.photos[3].photo_reference}&sensor=false&key=AIzaSyATaVEl_K2D9IcWPICwcog27_C1TsOQGr0)`,
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div>
+              <div
+                className="ImgQuatre"
+                style={{
+                  backgroundImage: `url( https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${restoDetail.photos[4].photo_reference}&sensor=false&key=AIzaSyATaVEl_K2D9IcWPICwcog27_C1TsOQGr0)`,
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div>
+            </div>
+
+)}
+          </Col>
+        </Row>
+
+<Row style={{ marginTop:'2%'}}>
+
+
+  <Col xs={12} sm={8} md={8} lg={8}>
+  <div style={{ display:'flex', justifyContent:'flex-start', alignItems:'center', paddingLeft:80, paddingBottom:20}}>
+
+  <div className="container-specialite">
+     <h2 className="primary-texte-specialite">Restaurant sur place : Specialite Food ⸱ Chez Diane</h2>
+      <p className="secondary-texte-specialite">4 voyageurs - chambre - lits - salle de bain</p></div>
+  <div> <Avatar sx={{ width: 56, height: 56 }} src={imgBoss}></Avatar></div>
+
+  </div>
+  <div  style={{ paddingLeft:80}}>
+
+  <Divider  />
+  </div>
+  </Col>
+</Row>
+
+
+
+
         <Row className="justify-content-center jumbotron">
           <Col xs={12} sm={7} md={7} lg={7}>
             <div style={{ display: "flex" }}>
@@ -341,10 +440,7 @@ export default function RestauDetail(props) {
                 </p>
               </div>
             </div>
-            <SwipeableTextMobileStepper
-              imageFood={restoDetail.photos}
-              apiKey={key}
-            />
+         
 
             <div className="sanitaire">
               <div className="vnu9I">
@@ -437,7 +533,6 @@ export default function RestauDetail(props) {
         </Row>
       </Container>
 
-      <Footer />
     </>
   );
 }

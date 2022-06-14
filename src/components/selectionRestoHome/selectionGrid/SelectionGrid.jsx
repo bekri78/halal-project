@@ -1,44 +1,79 @@
-import React from 'react'
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import './SelectionGrid.css'
-import CardSelection from '../cardSelection/CardSelection';
+import React from "react";
+import { styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Paper from "@mui/material/Paper";
+import Pagination from "@mui/material/Pagination";
+import "./SelectionGrid.css";
+import CardSelection from "../cardSelection/CardSelection";
 import pictureData from "../../../ressource/data/cardSelection";
 export default function SelectionGrid() {
-
-    
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
     padding: theme.spacing(1),
-    margin:20,
-    textAlign: 'center',
+    margin: 20,
+    textAlign: "center",
     color: theme.palette.text.secondary,
   }));
 
   return (
-  <Box sx={{ flexGrow: 1 }} style={{ width:'100%',height:'100%'}}>
-      <Grid container spacing={3} xs={12} style={{ margin:'auto', display:'flex', justifyContent:'center'}}>
+    <Container>
 
-        <Grid item xs={12} md={6}lg={4}>
-          <div className='montagne'><h3>Notre selection de la semaine</h3></div>
-        </Grid>
-        <Grid item xs={12} md={6} lg={7} style={{padding:'24px'}}>
-        <Grid container spacing={3} xs={11} style={{margin:'auto', display:'flex',justifyContent:'center'}}>
-        <CardSelection data ={pictureData[0].image} nom={pictureData[0].nom} note={pictureData[0].note} ville={pictureData[0].ville}/>
-        <CardSelection data ={pictureData[1].image} nom={pictureData[1].nom} note={pictureData[1].note} ville={pictureData[1].ville}/>
-      
-        </Grid>
-        <Grid container spacing={3} xs={11} style={{margin:'auto', display:'flex',justifyContent:'center'}}>
-   
-        <CardSelection data={pictureData[2].image} nom={pictureData[2].nom} note={pictureData[2].note} ville={pictureData[2].ville}/>
-        <CardSelection data={pictureData[3].image} nom={pictureData[3].nom} note={pictureData[3].note} ville={pictureData[3].ville}/>
-        </Grid>
-
-        </Grid>
-      </Grid>
-    </Box>
-  )
+       
+      <Row style={{ marginBottom: "5%" }}>
+        <Col
+          xs={12}
+          sm={12}
+          md={12}
+          lg={12}
+          className="d-flex justify-content-center align-items-center mb-auto flex-column "
+        >
+          <div className="containerBadge">
+            <div className="badgeContente">
+              <span> La selection de la semaine</span>
+            </div>
+            <h2 className="badgeRestoH2">Les 5 restaurants du moment</h2>
+            <p className="badgeTexte">
+              Decouvrez une selection de restaurants chaque  semaine , de
+              qualités pour tous les gouts et tous les budgets.
+            </p>
+          </div>
+        </Col>
+      </Row>
+      <Row>
+        <Col
+          className="d-flex justify-content-center align-items-center mb-auto  "
+          xs={12}
+          sm={12}
+          md={12}
+          lg={12}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              margin: "auto",
+              flexWrap: "wrap",
+            }}
+          >
+            {pictureData &&
+              pictureData.map((el, index) => (
+                <CardSelection
+                  key={index}
+                  data={el.image}
+                  nom={el.nom}
+                  note={el.note}
+                  ville={el.ville}
+                  texte={el.texte}
+                />
+              ))}
+          </div>
+        </Col>
+      </Row>
+    </Container>
+  );
 }

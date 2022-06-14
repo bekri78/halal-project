@@ -4,14 +4,14 @@ const cardFrance = [
       alt: "gastronomique",
       title: "Le Palais des sens",
       texte:
-      "Envie de vous faire un bon restaurant gastronomique ? On vous file nos dernières bonnes adresses à découvrir absolument pour vous régaler.",
+        "Preparez votre voyage parfait au soleil de miami",
     },
     {
       url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGrPshPmwD9YIUqqZQJ8CZhdoBapoonxuEdw&usqp=CAU",
       alt: "gastronomique",
       title: "Le festin royal",
       texte:
-      "Envie de vous faire un bon restaurant gastronomique ? On vous file nos dernières bonnes adresses à découvrir absolument pour vous régaler.",
+        "Preparez votre voyage parfait au soleil de miami",
     },
   
     {
@@ -19,7 +19,7 @@ const cardFrance = [
       alt: "gastronomique",
       title: "Aux galeries du goût",
       texte:
-      "Envie de vous faire un bon restaurant gastronomique ? On vous file nos dernières bonnes adresses à découvrir absolument pour vous régaler.",
+        "Preparez votre voyage parfait au soleil de miami",
     },
   
     {
@@ -27,7 +27,7 @@ const cardFrance = [
       alt: "gastronomique",
       title: "Le coin pimenté",
       texte:
-        "Envie de vous faire un bon restaurant gastronomique ? On vous file nos dernières bonnes adresses à découvrir absolument pour vous régaler.",
+      "Preparez votre voyage parfait au soleil de miami",
     },
   
     {
@@ -35,7 +35,7 @@ const cardFrance = [
       alt: "gastronomique",
       title: "Chez les Mariachis",
       texte:
-      "Envie de vous faire un bon restaurant gastronomique ? On vous file nos dernières bonnes adresses à découvrir absolument pour vous régaler.",
+        "Preparez votre voyage parfait au soleil de miami",
     },
   
     {
@@ -43,7 +43,7 @@ const cardFrance = [
       alt: "gastronomique",
       title: "Just baked",
       texte:
-        "Envie de vous faire un bon restaurant gastronomique ? On vous file nos dernières bonnes adresses à découvrir absolument pour vous régaler.",
+          "Preparez votre voyage parfait au soleil de miami",
     },
   
      

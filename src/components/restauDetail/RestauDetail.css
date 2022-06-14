@@ -1,3 +1,72 @@
+@import url("https://db.onlinewebfonts.com/c/961a181da27e7cbc072ec2fb5bbfe2a9?family=Circular+Std+Bold")
+.titleResto {
+  color: inherit !important;
+  font-size: 1em !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  display: inline !important;
+  font-size: 26px !important;
+  line-height: 30px !important;
+  font-weight: 600 !important;
+}
+
+.titleResto {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 80px;
+  padding-right: 80px;
+  font-size: 2.1em;
+}
+.primary-texte-specialite {
+  color: inherit !important;
+  font-size: 1.8em !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  margin: 0px !important;
+  padding: 0px !important;
+}
+.secondary-texte-specialite {
+  color: #222222 !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
+}
+
+.container-specialite {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+.commentairesNumber {
+  color: rgb(34, 34, 34) !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+  font-weight: 600 !important;
+  margin-top: revert !important ;
+  margin-bottom: revert !important;
+}
+
+.commentaireDecoration {
+  text-decoration: underline !important;
+}
+
+.point-circle {
+  color: rgb(113, 113, 113) !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif !important;
+  font-weight: 400 !important;
+  margin: 8px 8px 0px !important;
+}
+
 .rating-value {
   font-size: 1.875rem;
   font-weight: 400;
@@ -156,4 +225,44 @@
   color: hsl(220, 9%, 26%);
   font-size: 1rem;
   font-weight: 300;
+}
+
+.containerGrid {
+  display: grid;
+  grid-template-columns: 50% 1fr 1fr;
+  grid-template-rows: 50% 50%;
+  gap: 8px 8px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "f ff fffff ."
+    "f fff ffff .";
+  padding-left: 80px;
+  padding-right: 80px;
+  max-height: calc(60vh - 64px);
+  height: 400px;
+}
+
+.ImgPrincipal {
+  grid-area: f;
+  object-fit: cover;
+  background-position: 50% 50% !important;
+  border-radius: 12px 0px 0px 12px;
+}
+
+.ImgUn {
+  grid-area: ff;
+}
+
+.ImgDeux {
+  grid-area: fff;
+}
+
+.ImgTrois {
+  grid-area: fffff;
+  border-radius: 0px 12px 0px 0px;
+}
+
+.ImgQuatre {
+  grid-area: ffff;
+  border-radius: 0px 0px 12px 0px;
 }

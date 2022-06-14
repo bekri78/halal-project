@@ -42,7 +42,7 @@ export default function Ville() {
           <Box className="container-title-texte-column">
             <h3 className="designBlocks">Villes</h3>
             <p >
-              Les villes de frances les plus populaire, proposant  le plus de restaurants halal de qualités.
+              Les villes de France les plus populaires,vous proposant un large choix de restaurants halal de qualités et certifiés.
             </p>
           </Box>
         </Grid>
