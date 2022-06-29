@@ -6,7 +6,7 @@
   "dependencies": {
     "@atomap/use-places-autocomplete": "^1.0.4",
     "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
+    "@emotion/styled": "^11.9.3",
     "@mui/icons-material": "^5.6.0",
     "@mui/material": "^5.6.0",
     "@mui/styled-engine-sc": "^5.5.2",

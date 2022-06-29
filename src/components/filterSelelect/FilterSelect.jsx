@@ -1,11 +1,8 @@
 import * as React from "react";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import MenuRating from "../menuRating/MenuRating";
+ 
+ 
 import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
+ 
 import ModaleCertificat from "../modaleCertificat/ModaleCertificat";
 import MosqueIcon from "@mui/icons-material/Mosque";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
@@ -49,8 +46,9 @@ export default function SelectVariants(props) {
   };
 
   return (
+    <>
     <div className="conteneur-filter">
-      <Stack spacing={2} direction="row">
+      <Stack spacing={2} direction="row" display={'flex'} justifyContent={'center'}>
         <Chip
           icon={<WorkspacePremiumIcon />}
           onClick={handleChangeCertificat}
@@ -80,28 +78,14 @@ export default function SelectVariants(props) {
           label="Ouvert"
         />
 
-        <MenuRating />
-        {/* <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
-          <InputLabel id="demo-simple-select-filled-label">Note </InputLabel>
-          <Select
-            labelId="demo-simple-select-filled-label"
-            id="demo-simple-select-filled"
-            value={note}
-            onChange={handleChangeNote}
-          >
-            <MenuItem value={1}>1</MenuItem>
-            <MenuItem value={2}>2</MenuItem>
-            <MenuItem value={3}>3</MenuItem>
-            <MenuItem value={4}>4</MenuItem>
-            <MenuItem value={5}>5</MenuItem>
-          </Select>
-        </FormControl> */}
+   
       </Stack>
+    </div>
       <ModaleCertificat
         openCertificat={openCertificat}
         modaleoption={modaleoption}
         closeModaleCertificat={(close) => setOpenCertificat(close)}
       />
-    </div>
+      </>
   );
 }

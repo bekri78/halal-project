@@ -1,21 +1,23 @@
 @import url("https://db.onlinewebfonts.com/c/961a181da27e7cbc072ec2fb5bbfe2a9?family=Circular+Std+Bold")
 .titleResto {
-  color: inherit !important;
   font-size: 1em !important;
-  font-weight: inherit !important;
   line-height: inherit !important;
-  margin: 0px !important;
-  padding: 0px !important;
-  display: inline !important;
+
   font-size: 26px !important;
   line-height: 30px !important;
   font-weight: 600 !important;
+
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 80px;
+  padding-right: 80px;
+  font-size: 2.1em;
 }
 
 .titleResto {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: center !important;
   padding-left: 80px;
   padding-right: 80px;
   font-size: 2.1em;
@@ -111,6 +113,7 @@
   position: absolute;
   left: 0;
   top: 0;
+
   content: "";
   width: 0.25rem;
   height: 100%;
@@ -123,6 +126,8 @@
   font-weight: 600;
   letter-spacing: 0;
   line-height: 1.5rem;
+  text-align: start;
+  padding-left: 0.9rem;
 }
 
 .avisTitle {
@@ -153,9 +158,8 @@
   line-height: 1.3846153846153846;
   border-radius: 9999px;
   padding: 0.125rem 0.5rem;
-  color: green.m;
+  color: green;
   background: hsl(220, 9%, 93%);
-  margin-bottom: 10px;
 }
 
 .titleRestoDetail {
@@ -190,10 +194,12 @@
 
 .conteneur-avis {
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: flex-start;
+  flex-direction: row;
   align-items: center;
   margin: auto;
+  flex-wrap: wrap;
+  padding-left: 80px !important;
 }
 .conteneur-cadeaux {
   display: flex;
@@ -245,24 +251,80 @@
 .ImgPrincipal {
   grid-area: f;
   object-fit: cover;
-  background-position: 50% 50% !important;
+  background-position: calc(50% - 50%);
   border-radius: 12px 0px 0px 12px;
+  cursor: pointer;
 }
 
 .ImgUn {
   grid-area: ff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: calc(50% - 50%);
+  cursor: pointer;
 }
 
 .ImgDeux {
   grid-area: fff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: calc(50% - 50%);
+  cursor: pointer;
 }
 
 .ImgTrois {
   grid-area: fffff;
   border-radius: 0px 12px 0px 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: calc(50% - 50%);
+  cursor: pointer;
 }
 
 .ImgQuatre {
   grid-area: ffff;
   border-radius: 0px 0px 12px 0px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: calc(50% - 50%);
+  cursor: pointer;
+}
+
+.ImgPrincipal:hover {
+  filter: brightness(80%);
+}
+.ImgUn:hover {
+  filter: brightness(80%);
+}
+.ImgDeux:hover {
+  filter: brightness(80%);
+}
+.ImgTrois:hover {
+  filter: brightness(80%);
+}
+.ImgQuatre:hover {
+  filter: brightness(80%);
+}
+
+.info-resto-details {
+  text-align: start;
+  color: rgb(113, 113, 113) !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  margin-top: revert;
+}
+
+.icone-proposition-resto {
+  width: 50%;
+  text-align: start;
+  margin-top: revert !important;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.icone-proposition-resto > span {
+  margin-right: 4%;
 }

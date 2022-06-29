@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={ <> <ResponsiveAppBar/><Home /><Apropos/><Footer/></>} />
         <Route path="/Carte" element={<CardMaps/>} />
-        <Route path="/:id" element={<><RestauDetail /><Apropos/></>} />
+        <Route path="/:id" element={<><RestauDetail /><Apropos/> <Footer/></>} />
       </Routes>
     </div>
   );

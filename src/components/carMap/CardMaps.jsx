@@ -1,35 +1,33 @@
 import React, { useEffect, useState } from "react";
 
 import Location from "../Location/location";
-import AutoCompleteResto from "../autoCompleteResto/AutoCompleteResto";
+
 import { arrondissementData } from "../../arrondissements";
 import Footer from "../footer/Footer";
 import FilterSelect from "../filterSelelect/FilterSelect";
-import CardMaterialUi from "../cardMui/CardMui";
 import MediaControlCard from "../carMui2/CardMui2";
-import Filter from "../filter/Filter";
-import PredictionsOnInputChange from "../autoComplete/InputSearch";
+import * as L from 'leaflet'
 import { MapContainer, TileLayer, Polygon, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 import SimpleAccordion from "../accordeon/Accordeon";
 import DraggableMarker from "../draggleMarker/marker";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./CardMaps.css";
 import Divider from "@mui/material/Divider";
-import Button from "@mui/material/Button";
-import SendIcon from "@mui/icons-material/Send";
 import markerIcon2 from "../../ressource/Marker/marker-icon-2x.png";
 import markerIcon from "../../ressource/Marker/marker-icon.png";
 import markerShadow from "../../ressource/Marker/marker-shadow.png";
-import { Autocomplete } from "@mui/material";
 import Apropos from "../aPropos/Apropos";
-import Logo from '../../ressource/img/halal-food-logo.png'
+import Logo from "../../ressource/img/halal-food-logo.png";
+import Fab from "@mui/material/Fab";
+import NavigationIcon from "@mui/icons-material/Navigation";
+import MapIcon from "@mui/icons-material/Map";
 const key = "AIzaSyAURsom7c-jmbNERN0wVqb4OzVten2Hy24"; // clef google map api
 
 delete L.Icon.Default.prototype._getIconUrl;
+
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: markerIcon2,
   iconUrl: markerIcon,
@@ -45,6 +43,7 @@ export default function CardMaps(props) {
   const [restaurantCopie, setRestaurantCopie] = useState([]);
   const [restaurantOpen, setRestaurantOpen] = useState(false);
   const [restaurantPopulaire, setRestaurantPopulaire] = useState(false);
+  const [affichageCarte, setAffichageCarte] = useState(false);
   let data = localStorage.getItem("coordonate");
   let ville = localStorage.getItem("ville").split(",");
 
@@ -60,7 +59,15 @@ export default function CardMaps(props) {
     }
   }, [centerMap]); // si lat et lng on une nouvelle attribution de valeurs relance le useEffect
 
-  
+
+  // useEffect(()=>{
+    
+  //   setTimeout(() => {
+  //       var map = L.map('my-map'); // my-map is the ID of your DOM map container
+  //       map.invalidateSize();
+  //     }, 0);
+   
+  // },[affichageCarte])
 
   const resquestApi = async () => {
     const cors = "https://api.allorigins.win/get?url=";
@@ -70,7 +77,7 @@ export default function CardMaps(props) {
       const resquest = await fetch(`${cors}${encodedEndpoint}`);
       const json = await resquest.json();
       const { results } = JSON.parse(json.contents);
-      console.log(results)
+      console.log(results);
       setRestaurant(results);
       setRestaurantCopie(results);
     } catch (e) {
@@ -92,17 +99,15 @@ export default function CardMaps(props) {
   const open = (ouvert) => {
     let arrayOpen = [];
     if (ouvert === true) {
-      console.log('je suis dans le if')
+ 
       restaurantCopie
         .filter((el) => el.opening_hours.open_now === true)
         .map((filterRating) => {
           return arrayOpen.push(filterRating);
         });
-        console.log(arrayOpen)
-      setRestaurantCopie(arrayOpen);    
-    } 
-    
-    else {
+      console.log(arrayOpen);
+      setRestaurantCopie(arrayOpen);
+    } else {
       setRestaurantCopie(restaurant);
     }
   };
@@ -119,109 +124,91 @@ export default function CardMaps(props) {
     }
   };
 
+
+
+
+  
   return (
     <>
-    <div className="conteneur_logo_card">
-      <img src={Logo} alt="logo"/>
-    </div>
       <Container fluid id="map">
-        <Row>
-          <Col
-            xs={12}
-            sm={12}
-            md={12}
-            lg={12}
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100%",
-              margin: "auto",
-            }}
-          >
-            <div style={{ width: "40%" }}>
-              <PredictionsOnInputChange
-                newLocation={(newLocation) => setCenterMap(newLocation)}
-                adresseDemande={(adresseDemande) => console.log(adresseDemande)}
-              />
-            </div>
-            <div style={{ marginLeft: "-10px" }}>
-              <AutoCompleteResto />
-            </div>
-
-            <Button
-              style={{ marginLeft: 10, padding: 15 }}
-              variant="contained"
-              endIcon={<SendIcon />}
-            >
-              TROUVER
-            </Button>
-          </Col>
-        </Row>
-        {/* <h1 className='titlemap'>Map</h1> */}
-
         <Row>
           <Col sm={12} md={12} lg={12}>
             <div className="title-ville">
+              <img style={{ width: "8%" }} src={Logo} alt="logo" />{" "}
               <h1 className="ville"> Les meilleurs restaurants à {ville[1]}</h1>
             </div>
           </Col>
         </Row>
         <Row className="position-nav">
           <Col sm={12} md={12} lg={12}>
+            <div style={{ paddingTop: "0.5%", paddingBottom: "0.5%" }}>
+              <Divider
+                variant="middle"
+                style={{ width: "50%", margin: "auto" }}
+              />
+            </div>
             <div>
               <FilterSelect
-                noteFiltre={(newNote) => rating(newNote)}
-                restoOuvertFilter={(ouvert) =>( setRestaurantOpen(ouvert), open(ouvert) ) }
-                restoPopulaire={(populaire) =>(
-
-                  setRestaurantPopulaire(populaire),
-                  populairee(populaire)
-                )
-                }
+                restoOuvertFilter={(ouvert) => (
+                  setRestaurantOpen(ouvert), open(ouvert)
+                )}
+                restoPopulaire={(populaire) => (
+                  setRestaurantPopulaire(populaire), populairee(populaire)
+                )}
+              />
+            </div>
+            <div style={{ paddingBottom: "0.5%" }}>
+              <Divider
+                variant="middle"
+                style={{ width: "50%", margin: "auto" }}
               />
             </div>
           </Col>
         </Row>
-        <Container>
-          <Row>
-            <Col xs={12} sm={7} md={7} lg={7} className="carte">
-              {restaurantCopie &&
-                restaurantCopie.map((data) => (
-                  <MediaControlCard
-                    key={data.place_id}
-                    placeId={data.place_id}
-                    name={data.name}
-                    adress={data.formatted_address}
-                    type={data.types[1]}
-                    initiale={data.name}
-                    starsRating={data.rating}
-                    cardLat={data.geometry.location.lat}
-                    cardLng={data.geometry.location.lng}
-                    open={
-                      data.opening_hours ? data.opening_hours.open_now : false
-                    }
-                    apiKey={key}
-                    photoreference={
-                      data.photos
-                        ? data.photos[0]["photo_reference"]
-                        : "Aap_uEAJuqX8B3OPawAhaUsgJOeUylm3CLUdg8jTVxf88KbDEz4Q1I8WeLB3qzsrpIqwC2fO-Hp2V-IvukTy0IsJtgdklYeefx9QzObM39ykT7eUmNWzelWKI6fiaw8dEgrtPNoUGCfiW4vmkiFIN2MnZoP6dwuhtSKJD9Mnpq0oswHGqgZM"
-                    }
-                  />
-                ))}
+        <Container fluid>
+          <Row style= {{ display : affichageCarte ? 'none': 'block'}}>
+            <Col xs={12} sm={12} md={12} lg={12} className="carte">
+              <div className="container-carte-resto">
+                {restaurantCopie &&
+                  restaurantCopie.map((data) => (
+                    <MediaControlCard
+                      key={data.place_id}
+                      placeId={data.place_id}
+                      name={data.name}
+                      adress={data.formatted_address}
+                      type={data.types[1]}
+                      initiale={data.name}
+                      starsRating={data.rating}
+                      cardLat={data.geometry.location.lat}
+                      cardLng={data.geometry.location.lng}
+                      open={
+                        data.opening_hours ? data.opening_hours.open_now : false
+                      }
+                      apiKey={key}
+                      photoreference={
+                        data.photos
+                          ? data.photos[0]["photo_reference"]
+                          : "Aap_uEAJuqX8B3OPawAhaUsgJOeUylm3CLUdg8jTVxf88KbDEz4Q1I8WeLB3qzsrpIqwC2fO-Hp2V-IvukTy0IsJtgdklYeefx9QzObM39ykT7eUmNWzelWKI6fiaw8dEgrtPNoUGCfiW4vmkiFIN2MnZoP6dwuhtSKJD9Mnpq0oswHGqgZM"
+                      }
+                    />
+                  ))}
+              </div>
             </Col>
-            <Col xs={12} sm={5} md={5} lg={5}>
-
+            </Row>
+            <Row style= {{ display : affichageCarte ? 'block': 'none'}}>
+            <Col xs={12} sm={12} md={12} lg={12}  >
               {centerMap && (
                 <MapContainer
                   center={centerMap}
                   zoom={12}
                   style={{ width: "100%", height: "100vh" }}
                   className="mapContainer"
+                  
+     
                 >
                   <TileLayer
-                    url="https://api.maptiler.com/maps/basic/256/{z}/{x}/{y}.png?key=z6XfQf2YId8cjbY3LhER"
-                    attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+                      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                   />
 
                   {restaurantCopie &&
@@ -288,9 +275,20 @@ export default function CardMaps(props) {
               />
             </Col>
           </Row>
+          <div className="displayCard">
+            <Fab
+              variant="extended"
+              size="medium"
+              color="primary"
+              aria-label="add"
+              onClick={ ()=> { setAffichageCarte(!affichageCarte)}}
+            >
+               {affichageCarte ? 'Afficher les Restaurants' : 'Afficher la carte'}
+              <MapIcon sx={{ mr: 1 }} />
+            </Fab>
+          </div>
         </Container>
 
-        
         <div style={{ marginTop: "2%" }}>
           <Divider variant="middle" />
         </div>
@@ -303,7 +301,7 @@ export default function CardMaps(props) {
           </Col>
         </Row>
       </Container>
-      <Apropos/>
+      <Apropos />
       <Footer ville={ville[1]} />
     </>
   );

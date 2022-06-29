@@ -1,120 +1,117 @@
-import * as React from "react";
-import { useTheme } from "@mui/material/styles";
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import "./CardMui2.css";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import CreditCardIcon from "@mui/icons-material/CreditCard";
-import Divider from "@mui/material/Divider";
-import DoDisturbOffIcon from "@mui/icons-material/DoDisturbOff";
-import MeetingRoomOutlinedIcon from "@mui/icons-material/MeetingRoomOutlined";
-import Popover from "@mui/material/Popover";
+import StarIcon from "@mui/icons-material/Star";
+import FavoriteTwoToneIcon from "@mui/icons-material/FavoriteTwoTone";
+import DirectionsWalkIcon from "@mui/icons-material/DirectionsWalk";
 
 export default function MediaControlCard(props) {
-  const url = `/${props.placeId}`
+  const url = `/${props.placeId}`;
   const navigate = useNavigate();
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [distanceResto, setDistanceResto] = useState(0);
+  let coordinateUser = JSON.parse(localStorage.getItem("coordonate"));
+  const latUser = coordinateUser[0];
+  const lngUser = coordinateUser[1];
+  const latResto = props.cardLat;
+  const lngResto = props.cardLng;
 
-  const handlePopoverOpen = (event) => {
-    setAnchorEl(event.currentTarget);
+  const distance = (latUser, lngUser, latResto, lngResto, unit) => {
+    var radlat1 = (Math.PI * latUser) / 180;
+    var radlat2 = (Math.PI * latResto) / 180;
+    var theta = lngUser - lngResto;
+    var radtheta = (Math.PI * theta) / 180;
+    var dist =
+      Math.sin(radlat1) * Math.sin(radlat2) +
+      Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+    dist = Math.acos(dist);
+    dist = (dist * 180) / Math.PI;
+    dist = dist * 60 * 1.1515;
+    if (unit === "K") {
+      dist = dist * 1.609344;
+    }
+    if (unit === "M") {
+      dist = dist * 0.8684;
+    }
+    return setDistanceResto(dist);
   };
 
-  const handlePopoverClose = () => {
-    setAnchorEl(null);
+  useEffect(() => {
+    if ((coordinateUser && latResto && lngResto) !== null) {
+      distance(latUser, lngUser, latResto, lngResto, "K");
+    } else {
+      console.log("rien");
+    }
+  }, [coordinateUser]);
+  const redirection = () => {
+    navigate(url);
   };
-
-  const open = Boolean(anchorEl);
-  const redirection = ()=>{
-
-    navigate(url);  
-  }
 
   return (
     <>
       <div className="cardBox1">
-           <Card className="card2"  onClick={redirection} >
-       
+        <Card className="card2" onClick={redirection}>
+          <div
+            style={{
+              position: "absolute",
+              width: "100%",
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
+          >
+            <span style={{ margin: 10, color: "white" }}>
+              {" "}
+              <FavoriteTwoToneIcon sx={{ fontSize: 26 }} />
+            </span>
+          </div>
           <CardMedia
-            component="img"
-            sx={{
-              width: 276,
-              height: 216,
-              borderRadius: 1,
+            component="div"
+            style={{
+              width: 313,
+              height: 380.5,
+              borderRadius: " 10px 10px 10px 10px",
               cursor: "pointer",
-              background: "#f0f0f",
+              backgroundImage: `url(https://maps.googleapis.com/maps/api/place/photo?maxwidth=350&photoreference=${props.photoreference}&sensor=false&key=${props.apiKey}`,
               borderStyle: "none",
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
+              backgroundPosition: "center",
+              margin: "auto",
             }}
-            image={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${props.photoreference}&sensor=false&key=${props.apiKey}`}
-            alt="Photo reference"
           />
-          <Box sx={{ display: "flex", flexDirection: "column", width: "60%" }}>
+
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              width: "100%",
+              flexBasis: "100%",
+            }}
+          >
             <CardContent sx={{ flex: "1 0 auto" }}>
-              <Typography
-                component="div"
-                variant="h6"
-                className="position-Start-text conteneur-carte"
-              >
-                
-                <Button
-                  variant="contained"
-                  size="small"
-                  startIcon={<CreditCardIcon />}
-                  aria-owns={open ? 'mouse-over-popover' : undefined}
-                  aria-haspopup="true"
-                  onMouseEnter={handlePopoverOpen}
-                  onMouseLeave={handlePopoverClose}
-                >
-                  PAY
-                </Button>
-                <Popover
-                  id="mouse-over-popover"
-                  sx={{
-                    pointerEvents: "none",
-                  }}
-                  open={open}
-                  anchorEl={anchorEl}
-                  anchorOrigin={{
-                    vertical: "bottom",
-                    horizontal: "left",
-                  }}
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "left",
-                  }}
-                  onClose={handlePopoverClose}
-                  disableRestoreFocus
-                >
-                  <Typography
-                    sx={{ p: 2 }}
-                    aria-owns={open ? "mouse-over-popover" : undefined}
-                    aria-haspopup="true"
-                    onMouseEnter={handlePopoverOpen}
-                    onMouseLeave={handlePopoverClose}
-                  >
-                    Payement par carte disponible
-                  </Typography>
-                </Popover>
-                <p className="typeResto">{props.type}</p>
-              </Typography>
               <Typography
                 component="div"
                 variant="h2"
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
-                  marginTop: 10,
+                  alignItems: "baseline",
                 }}
               >
                 <p className="titleCarteName">
                   {props.name ? props.name : "?"}
                 </p>
-                <p className="ratingCarte">{props.starsRating}</p>
+                <p className="ratingCarte">
+                  {" "}
+                  {props.starsRating}{" "}
+                  <span>
+                    <StarIcon sx={{ fontSize: 15 }} />
+                  </span>
+                </p>
               </Typography>
               <Typography
                 variant="subtitle1"
@@ -123,34 +120,32 @@ export default function MediaControlCard(props) {
               >
                 <p className="adresseCarte"> {props.adress}</p>
               </Typography>
-              <Typography component="div" className="position-Start-text">
-                {props.open ? (
-                  <div className="position-Start-text">
-                    {" "}
-                    OUVERT <MeetingRoomOutlinedIcon />
-                  </div>
-                ) : (
-                  <div className="position-Start-text">
-                    {" "}
-                    FERME <DoDisturbOffIcon />
-                  </div>
-                )}
-              </Typography>
-
               <Typography
-                variant="subtitle1"
-                color="red"
+                variant="subtitle2"
                 component="div"
                 className="position-Start-text"
               >
-                <p className="reductionCarte">{"- 20% code promo"}</p>
+                <p
+                  style={{
+                    display: "flex",
+                    justifyContent: "flex-start",
+                    alignItems: "center",
+                    fontSize: 15,
+                    marginBottom: "revert",
+                    marginTop: -10,
+                  }}
+                >
+                  {" "}
+                  <span>
+                    {" "}
+                    <DirectionsWalkIcon />
+                  </span>{" "}
+                  {distanceResto.toFixed(1)} km
+                </p>
               </Typography>
             </CardContent>
           </Box>
         </Card>
-      </div>
-      <div style={{ width: "100%", marginTop: 6, marginBottom: 6 }}>
-        <Divider />
       </div>
     </>
   );

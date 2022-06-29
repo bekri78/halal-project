@@ -5,45 +5,60 @@
   margin-bottom: 10px;
   margin-top: 10px;
   box-shadow: none !important;
+  flex-direction: column;
+  position: relative;
 }
 
-.position-Start-text {
-  display: flex;
-  justify-content: start;
-}
 .cardBox1 {
-  width: 100%;
-}
-.cardBox1:hover {
-  /* transform: scale(1.02) perspective(0px); */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  width: 313px;
+  height: 469.5px;
+  margin: 10px;
 }
 
 .adresseCarte {
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-  color: hsl(220, 9%, 26%);
+  text-align: start;
+  color: #717171;
   font-size: 1rem;
   font-weight: 300;
   font-family: RalewayX, arial, sans-serif;
   font-style: normal;
   line-height: 1.375;
+  margin-top: -15px;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.adresseCarte:hover {
+  white-space: initial;
+  overflow: scroll;
+  text-overflow: ellipsis;
 }
 .titleCarteName {
-  font-size: 1rem;
+  font-size: 15px;
   font-weight: 600;
   font-family: RalewayX, arial, sans-serif;
   line-height: 1.375;
   margin: 0;
   margin-right: 0.25rem;
+  white-space: nowrap;
 }
 
 .ratingCarte {
-  font-size: 1.25rem;
+  font-size: 15px;
   font-weight: 400;
   font-family: RalewayX, arial, sans-serif;
   line-height: 1.2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ratingCarte > span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .typeResto {
   font-size: 1rem;
