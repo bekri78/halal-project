@@ -1,4 +1,7 @@
-import * as React from "react";
+import React,{useEffect, useState, useContext} from "react";
+import { UserContextModalConnexion } from "../../useContext";
+import {onAuthStateChanged, signOut} from "firebase/auth"
+import { auth } from "../../utils/Firebase.config";
 import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -8,7 +11,6 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
@@ -21,26 +23,50 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import "./MuiNavBar.css";
 
-const settings = ["Profil", "Tableau de Bord", "Deconnexion"];
 
 const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const [themeMode, setThemeMode] = React.useState(false);
+  const [ user, setUser] = useState(null)
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(false);
+  const [themeMode, setThemeMode] = useState(false);
+  const { value, setValue } = useContext(UserContextModalConnexion);
+
+  useEffect(()=>{
+
+    onAuthStateChanged(auth,(currentUser)=> {
+      setUser(currentUser)
+    })
+  },[])
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
+    console.log("click");
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu =  async() => {
     setAnchorElNav(null);
   };
 
+  const myAccount = () => {
+    console.log("redirection vers page mon compte");
+  };
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+
+  
+  const handleCloseUserMenuAndConnexion = async () => {
+    if(user){
+  await signOut(auth)
+    }else{
+
+      setAnchorElUser(null);
+      setValue(!value);
+    }
   };
 
   const themeSelection = () => {
@@ -209,7 +235,7 @@ const ResponsiveAppBar = () => {
                 ) : (
                   <>
                     {" "}
-                  <DarkModeIcon /> Dark{" "}
+                    <DarkModeIcon /> Dark{" "}
                   </>
                 )}
               </span>
@@ -219,7 +245,6 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Parametre Compte">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
                 <AccountCircleIcon />
               </IconButton>
             </Tooltip>
@@ -239,11 +264,17 @@ const ResponsiveAppBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              {user && (
+                <MenuItem onClick={myAccount}>
+                  <Typography textAlign="center"> Mon compte</Typography>
                 </MenuItem>
-              ))}
+              )}
+              <MenuItem onClick={handleCloseUserMenuAndConnexion}>
+                <Typography textAlign="center">
+                  {" "}
+                  {user  ? "Deconnexion" : "Connexion"}{" "}
+                </Typography>
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>

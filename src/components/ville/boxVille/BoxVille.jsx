@@ -9,7 +9,7 @@ export default function BoxVille(props) {
       <div>
         <img
         style={{minHeight:190, maxHeight:190}}
-          class="MuiBox-root css-h8f6pa"
+          className="MuiBox-root css-h8f6pa"
           src={props.url}
           alt={props.alt}
         />

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SelectionHome from "../selectionRestoHome/Selection";
+import ModaleConnexion from "../connectModal/ModaleConnexion"
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import Button from "@mui/material/Button";
@@ -172,6 +173,7 @@ export default function Home() {
       </div>
       <Ville/>
       <Avis/>
+      <ModaleConnexion/>
     </>
   );
 }
