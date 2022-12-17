@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/halal-project/static/css/main.059e4a88.css",
-    "main.js": "/halal-project/static/js/main.62e8185a.js",
+    "main.css": "/halal-project/static/css/main.92c87dca.css",
+    "main.js": "/halal-project/static/js/main.a28abfed.js",
     "static/js/787.130d8f2b.chunk.js": "/halal-project/static/js/787.130d8f2b.chunk.js",
     "static/media/avatar.jpg": "/halal-project/static/media/avatar.d0c8ddca68c87c23fe91.jpg",
     "static/media/patterne-img.svg": "/halal-project/static/media/patterne-img.d6471bace81c3ada86db50ecb4e28f92.svg",
@@ -18,12 +18,12 @@
     "static/media/cadeau.svg": "/halal-project/static/media/cadeau.7f448aec5ad8d7af8f8635e51a9298e7.svg",
     "static/media/mail_sent.svg": "/halal-project/static/media/mail_sent.f64327fe6f823ee40e7beb60112227fd.svg",
     "index.html": "/halal-project/index.html",
-    "main.059e4a88.css.map": "/halal-project/static/css/main.059e4a88.css.map",
-    "main.62e8185a.js.map": "/halal-project/static/js/main.62e8185a.js.map",
+    "main.92c87dca.css.map": "/halal-project/static/css/main.92c87dca.css.map",
+    "main.a28abfed.js.map": "/halal-project/static/js/main.a28abfed.js.map",
     "787.130d8f2b.chunk.js.map": "/halal-project/static/js/787.130d8f2b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.059e4a88.css",
-    "static/js/main.62e8185a.js"
+    "static/css/main.92c87dca.css",
+    "static/js/main.a28abfed.js"
   ]
 }
