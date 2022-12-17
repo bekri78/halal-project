@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useEffect, useState} from "react";
+import ResponsiveAppBar from './components/muiNavBar/MuiNavBar'
+import Home from "./components/home/Home";
+import CardMaps from "./components/carMap/CardMaps";
+import RestauDetail from "./components/restauDetail/RestauDetail";
+import Footer from "./components/footer/Footer";
+import Apropos from "./components/aPropos/Apropos";
+import Compte from "./components/compte/Compte";
+import { Route, Routes } from "react-router-dom";
+ 
+import { UserContextModalConnexion } from "./useContext";
+import "./App.css";
 
 function App() {
+  const [value, setValue] = useState(false)
+ 
+  
+
+ 
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+        <UserContextModalConnexion.Provider  value={{value, setValue}}>
+      <Routes>
+        <Route exact path="/" element={ <><ResponsiveAppBar /><Home /><Apropos/><Footer/></>} />
+        <Route path="/Carte" element={<CardMaps/>} />
+        <Route path="/:id" element={<><RestauDetail /><Apropos/> <Footer/></>} />
+        <Route path="/Compte" element={<Compte/>} />
+      </Routes>
+        </UserContextModalConnexion.Provider>
     </div>
   );
 }

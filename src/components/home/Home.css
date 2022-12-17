@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic&display=swap");
+.home {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-image: url("../../ressource/img/homePageImg.webp");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-color: #f2f6f4;
+}
+
+.home-avatar {
+  min-height: 76vh;
+  width: 100%;
+  opacity: 1;
+  background: url("../../ressource/img/avatar.jpg") center top / cover
+    transparent;
+  color: rgb(52, 71, 103);
+  box-shadow: none;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.titleHome {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 3rem;
+  line-height: 1.25;
+  font-weight: 700;
+  opacity: 1;
+  text-transform: none;
+  vertical-align: unset;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  letter-spacing: -0.125px;
+  margin: 0px 0px -10px 0px;
+}
+
+.name-club {
+  color: white;
+}
+
+.container-title {
+  width: 100%;
+  margin: auto;
+}
+
+.text-box {
+  color: #fff;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-left: 5%;
+  padding: 2%;
+  border-radius: 5px;
+  margin-top: 6%;
+  padding-bottom: 0;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.text-box p {
+  font-size: 50px;
+  font-weight: 600;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.text-box h1 {
+  font-size: 90px;
+  line-height: 160px;
+
+  -webkit-text-stroke: 1px #fff;
+
+  -webkit-background-clip: text;
+  background-position: 0 0;
+}
+@keyframes back {
+  100% {
+    background-position: 2000px 0;
+  }
+}
+.text-box h3 {
+  font-size: 40px;
+  font-weight: 600;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.text-box .conteneur-text {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  padding-bottom: 4%;
+}
+.animation {
+  margin-left: -100px;
+}
+.text-box a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-right: 20px;
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  background-color: rgb(52, 71, 103);
+}
+.text-box a span {
+  font-size: 30px;
+  line-height: 15px;
+  margin-left: 5px;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.social-icons {
+  position: absolute;
+  right: 5%;
+  bottom: 8%;
+}
+
+.textHOME {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.text2 {
+  margin: 0px 2px 0px 8px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  opacity: 1;
+  vertical-align: unset;
+  text-decoration: none;
+  color: rgb(52, 71, 103);
+  letter-spacing: -0.125px;
+  font-weight: 400;
+}
+
+.inputSearchHome {
+  width: 100% !important;
+  /* background-color: #fff; */
+  display: flex;
+  justify-content: space-around;
+}
+
+/* .transparance-conteneur {
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  margin-top: 30px;
+  padding-bottom: 0;
+  
+} */
+
+.prediction {
+  background-color: #fff !important;
+}
+
+.container-banniere {
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin-left: -16px;
+  margin-right: -16px;
+  opacity: 1;
+  background: linear-gradient(195deg, rgb(66, 66, 74), rgb(25, 25, 25));
+  color: rgb(52, 71, 103);
+  box-shadow: none;
+  overflow: hidden;
+  margin-top: 5%;
+}
+
+.banniere-img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0.6;
+  background: rgb(25 25 25);
+  color: rgb(52, 71, 103);
+  box-shadow: none;
+}
+
+.container-info-home {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  width: 100%;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 3% 0 3% 0;
+  position: relative;
+}
+
+.container-el-home > h2 {
+  margin: 0px 0px 24px;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 2.25rem;
+  line-height: 1.3;
+  font-weight: 700;
+  opacity: 1;
+  text-transform: none;
+  vertical-align: unset;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  letter-spacing: -0.125px;
+}
+
+.container-el-home > p {
+  margin: 0px 0px 16px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  opacity: 0.8;
+  text-transform: none;
+  vertical-align: unset;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  letter-spacing: -0.125px;
+  margin: 0 30% 2% 30%;
+}
+
+.img-baniere-boxe {
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+  opacity: 1;
+  background: transparent;
+  color: rgb(52, 71, 103);
+  box-shadow: none;
+}

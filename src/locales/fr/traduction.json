@@ -1,0 +1,102 @@
+{
+    "home": {
+        "title": "L’appli facilitateur de lecture",
+        "oms": " 8 à 12 % de la population mondiale est touchée par des troubles de la lecture et de l'écriture spécifique selon l'OMS. Le plus connu étant la dyslexie. La lecture est omniprésente dans notre quotiden.",
+        "oms2": "Pour AlphaB, il est essentiel d’apporter une aide concrète à toutes personnes en difficulté.",
+        "oms3": " AlphaB a créé une solution adaptée et efficace pour toutes les personnes nécessitant une assistance lors de la lecture.",
+        "dislexique": "Comment pense un dyslexique ?",
+        "dislexique1": "La personne dyslexique ne comprend que le sens partiel d'un mot ou d'une phrase, mais pas son sens global.",
+        "dislexique2": "Le message d'un texte peut lui échapper totalement ou partiellement.",
+        "dislexique3": "De ce fait, il peut avoir des blocages dans la lecture et des difficultés dans différentes matières",
+        "dyslexique4": "Les facultés fondamentales (des dyslexiques), si elles ne sont pas réprimées ou détruites par les parents ou le système éducatif, peuvent se fondre en 2 traits caractéristiques :",
+        "dyslexique5": "Une intelligence supérieure à la moyenne est une créativité exceptionnelle. Et de là peut émerger le talent véritable de la dyslexie : le don d’excellence.",
+        "dyslexique6": "Les solutions pour traiter la dyslexie?",
+        "dyslexique7": "Il n'y a pas de traitement, mais une prise en charge pour diminuer l'incidence de ce trouble.",
+        "dyslexique8": "Il est impératif de repérer le plus tôt possible l'enfant dyslexique. Parfois, au sein d'un environnement averti, on peut repérer le trouble dès la fin de la maternelle."
+    },
+    "info": {
+        "title": "Fonctionnalités express",
+        "texte": "Un outil simple et accessible à tous afin de faciliter la lecture et la compréhension de textes.",
+        "block1Title": "Adaptable",
+        "block1Text": "Suivant vos preferences, l'outil s'adapte à vos besoins du quotidien en matiere de lecture.",
+        "block2Title": "Avis",
+        "block2Text": "Utilisez notre outil et laissez nous un avis. Nous serons ravis de l'afficher sur notre site.",
+        "block3Title": "Données privées",
+        "block3Text": "Dans le cadre de notre politique de confidentialité, AlphaB ne collecte pas vos données ni vos textes.",
+        "block4Title": "Facile à regler",
+        "block4Text": "Pour petits et grands, nous avons simplifié au maximum les fonctionnalités.",
+        "block5Title": "Utilisable sur mobile",
+        "block5Text": "Disponible sur mobile ainsi que sur tous les differents supports.",
+        "block6Title": "Aide Utilisation",
+        "block6Text": "Un question reponse est disponible pour comprendre l'outils en cas de besoin."
+    },
+    "avis": {
+        "avisTitle": "Ils sont conquis, et vous ?",
+        "topComment": "Top commentaires",
+        "decouvrir": "Decouvrir tous les avis",
+        "afficher": "Afficher",
+        "masquer": "Masquer"
+    },
+    "footer": {
+        "title": "Les meilleurs resto halal autour de vous",
+        "copyrights": "© Copyrights 2021 AlphaB All rights reserved.",
+        "accueil": "Accueil",
+        "outils": "Outils",
+        "carte": "Carte",
+        "contact": "Contact",
+        "personne": "Fait par"
+    },
+    "Outils": {
+        "entrer": "Entrer son texte",
+        "modifier": "Modifier son texte",
+        "ecouter": "Ecouter son texte",
+        "recuperer": "Recuperer son texte",
+        "entrerText": "L'application AlphaB vous offre ici 2 manières simples et intuitives de pouvoir insérer votre texte.",
+        "entrerText2": "-Vocalement, en appuyant sur le bouton 'Parler' ",
+        "entrerText3": "- Manuellement, en tapant simplement votre texte dans le champ prévu à cet effet",
+        "modifierText": "Une fois votre texte écrit dans la section de gauche, vous aurez le choix entre 7 options de modifications, toutes combinables entre elles, nous vous laissons le loisir de les manipuler. Vous trouverez ainsi celle qui correspondra au mieux à votre confort visuel.",
+        "ecouterText": "Pour vous aider à travers les sons, choisissez dans notre menu déroulant la voix qui vous plaît, sa vitesse de lecture ainsi que sa tonalité. Une fois votre configuration effectuée, appuyez sur 'Play'.",
+        "recupererText": "Une fois que vous êtes satisfaits de vos modifications, cliquez sur le bouton telecharger pour le récuperer au format pdf.",
+        "voix": "Voix",
+        "langue": "Langue",
+        "langueText": "Selectionner votre langue afin de permettre une meilleur retranscription de vos mots.",
+        "Interlignage": "Interlignage",
+        "Inter-mot": "Inter-mot",
+        "Inter-lettre": "Inter-lettre",
+        "Taille": "Taille",
+        "Police": "Police",
+        "Couleur": "Couleur",
+        "CouleurVoyelle": "Couleur voyelle",
+        "telecharger": "Récupérer",
+        "parler": "Parler",
+        "aide": "BESOIN D'AIDE ?",
+        "compris": "J'ai compris"
+    },
+    "Opinion": {
+        "btn": "Laisser un avis",
+        "title": "Votre avis compte",
+        "texte": "  Dans notre démarche d’évolution constante, toute l’équipe d’AlphaB porte de l’intérêt à votre avis car sans vous, nous ne pourrions continuer notre belle aventure. Merci pour votre contribution.",
+        "nom": "Nom",
+        "prenom": "Prenom",
+        "metier": "Métier",
+        "temoignage": "Témoignage",
+        "envoyer": "Envoyer"
+    },
+    "Navbar": {
+        "accueil": "Accueil",
+        "outils": "Outils",
+        "professionnels": "Medecin",
+        "contact": "Contact"
+    },
+    "Contact": {
+        "title": "Ecrivez nous",
+        "btn": "Envoyer",
+        "nom": "Nom",
+        "prenom": "Prenom",
+        "message": "Message",
+        "envoyer": "Votre message a bien été envoyé.",
+        "erreur": "Une erreur est survenu veuillez ressayer",
+        "remplire": "Merci de remplir correctement les champs requis *",
+        "champs": "Tous les champs doivent être renseignés."
+    }
+}

@@ -1,0 +1,105 @@
+.card2 {
+  display: flex;
+  width: 100%;
+  border-radius: 0.25px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  box-shadow: none !important;
+  flex-direction: column;
+  position: relative;
+}
+
+.cardBox1 {
+  width: 350px;
+  height: 500px;
+}
+
+.adresseCarte {
+  text-align: start;
+  color: #717171;
+  font-size: 1rem;
+  font-weight: 300;
+  font-family: RalewayX, arial, sans-serif;
+  font-style: normal;
+  line-height: 1.375;
+  margin-top: -15px;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.adresseCarte:hover {
+  white-space: initial;
+  overflow: scroll;
+  text-overflow: ellipsis;
+}
+.titleCarteName {
+  font-size: 15px;
+  font-weight: 600;
+  font-family: RalewayX, arial, sans-serif;
+  line-height: 1.375;
+  margin: 0;
+  margin-right: 0.25rem;
+  white-space: nowrap;
+}
+
+.ratingCarte {
+  font-size: 15px;
+  font-weight: 400;
+  font-family: RalewayX, arial, sans-serif;
+  line-height: 1.2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ratingCarte > span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.typeResto {
+  font-size: 1rem;
+  font-weight: 300;
+  font-family: RalewayX, arial, sans-serif;
+  font-style: normal;
+  line-height: 1.375;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 5%;
+}
+.reductionCarte {
+  margin-top: 0.125rem;
+  margin-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  color: hsl(348, 98%, 41%);
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: RalewayX, arial, sans-serif;
+  font-style: normal;
+  line-height: 1.375;
+  display: inline-block;
+  border-left: 4px solid hsl(348, 98%, 41%);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.conteneur-carte {
+  display: flex;
+  align-items: center;
+}
+
+$bright-color: #fff;
+@mixin bottom {
+  position: absolute;
+  right: 0;
+  left: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

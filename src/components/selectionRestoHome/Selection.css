@@ -1,0 +1,167 @@
+.conteneur-selection {
+  color: rgba(0, 0, 0, 0.87);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-width: 0px;
+  overflow-wrap: break-word;
+  background-clip: border-box;
+  border: 0px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.75rem;
+  overflow: visible;
+  padding: 16px;
+  margin-top: -64px;
+  margin-bottom: 32px;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: saturate(200%) blur(30px);
+  box-shadow: rgb(0 0 0 / 5%) 0rem 1.25rem 1.6875rem;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+.sectionCocktail {
+  width: 100%;
+  height: 350px;
+}
+
+.conteneur-img-cocktail {
+  margin: 1%;
+  height: 280px;
+  width: 100%;
+  padding: 2%;
+}
+.imgCocktail {
+  border-radius: 4px;
+  height: 100%;
+  width: 70%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.conteneur-number {
+  padding: 24px;
+  opacity: 1;
+  background: transparent;
+  color: rgb(52, 71, 103);
+  box-shadow: none;
+}
+
+.conteneur-number-2 {
+  -webkit-box-flex: 0;
+  max-width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.conteneur-number-3 {
+  padding: 16px;
+  text-align: center !important;
+  line-height: 1;
+  opacity: 1;
+  background: transparent;
+  color: rgb(52, 71, 103);
+  box-shadow: none;
+  margin: auto;
+  width: 100%;
+}
+
+.number-title {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 3rem;
+  line-height: 1.25;
+  font-weight: 700;
+  opacity: 1;
+  text-transform: none;
+  vertical-align: unset;
+  color: rgb(26, 115, 232);
+  letter-spacing: -0.125px;
+  background-image: linear-gradient(
+    195deg,
+    rgb(73, 163, 241),
+    rgb(26, 115, 232)
+  );
+  display: inline-block;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 1;
+  margin: 0px;
+  text-decoration: none;
+}
+
+.number-subtitle {
+  margin: 16px 0px 8px 0px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.375;
+  font-weight: 700;
+  opacity: 1;
+  text-transform: none;
+  vertical-align: unset;
+  text-decoration: none;
+  color: rgb(52, 71, 103);
+  letter-spacing: -0.125px;
+}
+
+.number-texte {
+  margin: auto !important;
+  padding: 0px;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  opacity: 1;
+  text-transform: none;
+  vertical-align: unset;
+  text-decoration: none;
+  color: rgb(123, 128, 154);
+  letter-spacing: -0.125px;
+}
+
+.number-restaurant-500,
+.number-restaurant-200,
+.number-restaurant-20 {
+  animation: counter 2.5s ease-in-out;
+  counter-reset: num var(--num);
+}
+
+.number-restaurant-500::before,
+.number-restaurant-200::before,
+.number-restaurant-20::before {
+  content: counter(num);
+}
+
+.number-restaurant-500 {
+  --num: 500;
+}
+.number-restaurant-200 {
+  --num: 200;
+}
+.number-restaurant-20 {
+  --num: 20;
+}
+
+@property --num {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@keyframes counter {
+  from {
+    --num: 0;
+  }
+}
+
+.conteneur-grid-resto-selection {
+  padding-top: 48px;
+  padding-bottom: 48px;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  opacity: 1;
+  background: transparent;
+  color: rgb(52, 71, 103);
+  box-shadow: none;
+  width: 100%;
+}
