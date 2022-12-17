@@ -1,11 +1,12 @@
 {
   "files": {
-    "main.css": "/halal-project/static/css/main.80e29ae1.css",
-    "main.js": "/halal-project/static/js/main.709c30c8.js",
+    "main.css": "/halal-project/static/css/main.059e4a88.css",
+    "main.js": "/halal-project/static/js/main.62e8185a.js",
     "static/js/787.130d8f2b.chunk.js": "/halal-project/static/js/787.130d8f2b.chunk.js",
     "static/media/avatar.jpg": "/halal-project/static/media/avatar.d0c8ddca68c87c23fe91.jpg",
     "static/media/patterne-img.svg": "/halal-project/static/media/patterne-img.d6471bace81c3ada86db50ecb4e28f92.svg",
     "static/media/halal-europe-removebg-preview.png": "/halal-project/static/media/halal-europe-removebg-preview.3781e3d83da8b4d49ffa.png",
+    "static/media/banner-illustration.png": "/halal-project/static/media/banner-illustration.12312950bb9bdb0d072b.png",
     "static/media/certification_m_halal-removebg-preview.png": "/halal-project/static/media/certification_m_halal-removebg-preview.b519a0afc6597b74ce95.png",
     "static/media/homePageImg.webp": "/halal-project/static/media/homePageImg.9c15e04742b9881b58fe.webp",
     "static/media/halal-logo-certif-removebg-preview.png": "/halal-project/static/media/halal-logo-certif-removebg-preview.8317daa76862222c3fd6.png",
@@ -15,13 +16,14 @@
     "static/media/halal-food-logo.png": "/halal-project/static/media/halal-food-logo.99e1a4412a4682a783e9.png",
     "static/media/loc.svg": "/halal-project/static/media/loc.af3dfd8061601d041e81f874a146b0a1.svg",
     "static/media/cadeau.svg": "/halal-project/static/media/cadeau.7f448aec5ad8d7af8f8635e51a9298e7.svg",
+    "static/media/mail_sent.svg": "/halal-project/static/media/mail_sent.f64327fe6f823ee40e7beb60112227fd.svg",
     "index.html": "/halal-project/index.html",
-    "main.80e29ae1.css.map": "/halal-project/static/css/main.80e29ae1.css.map",
-    "main.709c30c8.js.map": "/halal-project/static/js/main.709c30c8.js.map",
+    "main.059e4a88.css.map": "/halal-project/static/css/main.059e4a88.css.map",
+    "main.62e8185a.js.map": "/halal-project/static/js/main.62e8185a.js.map",
     "787.130d8f2b.chunk.js.map": "/halal-project/static/js/787.130d8f2b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.80e29ae1.css",
-    "static/js/main.709c30c8.js"
+    "static/css/main.059e4a88.css",
+    "static/js/main.62e8185a.js"
   ]
 }
