@@ -1,29 +1,30 @@
 import React, { useEffect, useState } from "react";
 
 import Location from "../Location/location";
-
-import { arrondissementData } from "../../arrondissements";
+// import { arrondissementData } from "../../arrondissements";
 import Footer from "../footer/Footer";
 import FilterSelect from "../filterSelelect/FilterSelect";
-import MediaControlCard from "../carMui2/CardMui2";
-import * as L from 'leaflet'
-import { MapContainer, TileLayer, Polygon, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
 import SimpleAccordion from "../accordeon/Accordeon";
+import MediaControlCard from "../carMui2/CardMui2";
 import DraggableMarker from "../draggleMarker/marker";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import "./CardMaps.css";
-import Divider from "@mui/material/Divider";
 import markerIcon2 from "../../ressource/Marker/marker-icon-2x.png";
 import markerIcon from "../../ressource/Marker/marker-icon.png";
 import markerShadow from "../../ressource/Marker/marker-shadow.png";
-import Apropos from "../aPropos/Apropos";
 import Logo from "../../ressource/img/halal-food-logo.png";
+import Apropos from "../aPropos/Apropos";
+import LoaderFood from "./loaderFood/LoaderFood";
+import "./CardMaps.css";
+import * as L from "leaflet";
+import { MapContainer, TileLayer, Polygon, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Divider from "@mui/material/Divider";
+import MapIcon from "@mui/icons-material/Map";
+import RestaurantIcon from '@mui/icons-material/Restaurant';
 import Fab from "@mui/material/Fab";
 import NavigationIcon from "@mui/icons-material/Navigation";
-import MapIcon from "@mui/icons-material/Map";
 const key = "AIzaSyAURsom7c-jmbNERN0wVqb4OzVten2Hy24"; // clef google map api
 
 delete L.Icon.Default.prototype._getIconUrl;
@@ -59,14 +60,13 @@ export default function CardMaps(props) {
     }
   }, [centerMap]); // si lat et lng on une nouvelle attribution de valeurs relance le useEffect
 
-
   // useEffect(()=>{
-    
+
   //   setTimeout(() => {
   //       var map = L.map('my-map'); // my-map is the ID of your DOM map container
   //       map.invalidateSize();
   //     }, 0);
-   
+
   // },[affichageCarte])
 
   const resquestApi = async () => {
@@ -77,7 +77,7 @@ export default function CardMaps(props) {
       const resquest = await fetch(`${cors}${encodedEndpoint}`);
       const json = await resquest.json();
       const { results } = JSON.parse(json.contents);
-      console.log(results);
+      
       setRestaurant(results);
       setRestaurantCopie(results);
     } catch (e) {
@@ -86,7 +86,7 @@ export default function CardMaps(props) {
   };
 
   const rating = (newValue) => {
-    console.log(newValue);
+   
     // props.postaleCode(newValue);
     let arrayRating = [];
     restaurant
@@ -99,13 +99,12 @@ export default function CardMaps(props) {
   const open = (ouvert) => {
     let arrayOpen = [];
     if (ouvert === true) {
- 
       restaurantCopie
         .filter((el) => el.opening_hours.open_now === true)
         .map((filterRating) => {
           return arrayOpen.push(filterRating);
         });
-      console.log(arrayOpen);
+     
       setRestaurantCopie(arrayOpen);
     } else {
       setRestaurantCopie(restaurant);
@@ -124,10 +123,6 @@ export default function CardMaps(props) {
     }
   };
 
-
-
-
-  
   return (
     <>
       <Container fluid id="map">
@@ -166,10 +161,11 @@ export default function CardMaps(props) {
           </Col>
         </Row>
         <Container fluid>
-          <Row style= {{ display : affichageCarte ? 'none': 'block'}}>
+          <Row style={{ display: affichageCarte ? "none" : "block" }}>
             <Col xs={12} sm={12} md={12} lg={12} className="carte">
               <div className="container-carte-resto">
-                {restaurantCopie &&
+               
+                {restaurantCopie.length > 0 ?(
                   restaurantCopie.map((data) => (
                     <MediaControlCard
                       key={data.place_id}
@@ -191,24 +187,22 @@ export default function CardMaps(props) {
                           : "Aap_uEAJuqX8B3OPawAhaUsgJOeUylm3CLUdg8jTVxf88KbDEz4Q1I8WeLB3qzsrpIqwC2fO-Hp2V-IvukTy0IsJtgdklYeefx9QzObM39ykT7eUmNWzelWKI6fiaw8dEgrtPNoUGCfiW4vmkiFIN2MnZoP6dwuhtSKJD9Mnpq0oswHGqgZM"
                       }
                     />
-                  ))}
+                  ))):<LoaderFood/>}
               </div>
             </Col>
-            </Row>
-            <Row style= {{ display : affichageCarte ? 'block': 'none'}}>
-            <Col xs={12} sm={12} md={12} lg={12}  >
+          </Row>
+          <Row style={{  visibility : affichageCarte ? "visible" : "hidden" , height: affichageCarte ? "auto" : "0px" }}>
+            <Col xs={12} sm={12} md={12} lg={12}>
               {centerMap && (
                 <MapContainer
                   center={centerMap}
                   zoom={12}
-                  style={{ width: "100%", height: "100vh" }}
+                  style={{ width: "100wh", height: "100vh" }}
                   className="mapContainer"
-                  
-     
                 >
                   <TileLayer
-                      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                   />
 
                   {restaurantCopie &&
@@ -225,7 +219,7 @@ export default function CardMaps(props) {
                     })}
                   <DraggableMarker center={data ? data : centerMap} />
 
-                  {arrondissementData.features.map((state, index) => {
+                  {/* {arrondissementData.features.map((state, index) => {
                     const coordinates = state.geometry.coordinates[0].map(
                       (item) => [item[1], item[0]]
                     );
@@ -265,7 +259,7 @@ export default function CardMaps(props) {
                         }}
                       />
                     );
-                  })}
+                  })} */}
                 </MapContainer>
               )}
               <Location
@@ -275,18 +269,28 @@ export default function CardMaps(props) {
               />
             </Col>
           </Row>
-          <div className="displayCard">
+         {
+           restaurantCopie.length > 0 && (
+
+             
+             <div className="displayCard">
             <Fab
               variant="extended"
               size="medium"
               color="primary"
               aria-label="add"
-              onClick={ ()=> { setAffichageCarte(!affichageCarte)}}
-            >
-               {affichageCarte ? 'Restaurants ' : 'Carte '}
-              <MapIcon sx={{ mr: 1 }} />
+              onClick={() => {
+                setAffichageCarte(!affichageCarte);
+              }}
+              >
+              {affichageCarte ?  <><RestaurantIcon sx={{ mr: 1 }}/>  Restaurants</> : <><MapIcon sx={{ mr: 1 }} />  Carte</>}
+            
             </Fab>
           </div>
+              )
+          }
+
+
         </Container>
 
         <div style={{ marginTop: "2%" }}>
