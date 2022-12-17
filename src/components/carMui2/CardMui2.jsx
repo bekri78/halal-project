@@ -51,10 +51,12 @@ export default function MediaControlCard(props) {
     navigate(url);
   };
 
+  const images = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=350&photoreference=${props.photoreference}&sensor=false&key=${props.apiKey}`
+
   return (
     <>
-      <div className="cardBox1">
-        <Card className="card2" onClick={redirection}>
+         <div className="cardBox1">
+       <Card className="card2" onClick={redirection}>
           <div
             style={{
               position: "absolute",
@@ -63,7 +65,7 @@ export default function MediaControlCard(props) {
               justifyContent: "flex-end",
             }}
           >
-            <span style={{ margin: 10, color: "white" }}>
+            <span style={{ marginRight: 30, marginTop: 10, color: "white" }}>
               {" "}
               <FavoriteTwoToneIcon sx={{ fontSize: 26 }} />
             </span>
@@ -146,7 +148,16 @@ export default function MediaControlCard(props) {
             </CardContent>
           </Box>
         </Card>
-      </div>
+      </div> 
+
+
+
+
+
+
+     
+
+
     </>
   );
 }

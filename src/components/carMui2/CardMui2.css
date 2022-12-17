@@ -10,9 +10,8 @@
 }
 
 .cardBox1 {
-  width: 313px;
-  height: 469.5px;
-  margin: 10px;
+  width: 350px;
+  height: 500px;
 }
 
 .adresseCarte {
@@ -91,4 +90,16 @@
 .conteneur-carte {
   display: flex;
   align-items: center;
+}
+
+$bright-color: #fff;
+@mixin bottom {
+  position: absolute;
+  right: 0;
+  left: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }

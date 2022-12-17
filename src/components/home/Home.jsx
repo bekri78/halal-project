@@ -38,7 +38,7 @@ export default function Home() {
 
   useEffect(() => {
     if (adresseDemande === true) {
-      console.log("redirection page map");
+     
       navigate("/Carte");
     }
   }, [adresseDemande]);
@@ -65,7 +65,7 @@ export default function Home() {
           }}
         >
           {" "}
-          {/* <h1 className="titleHome">Halal </h1>{" "} */}
+       
           <span style={{ height: "40%", width: "40%" }} ref={container}></span>
         </div>
         <div className="text-box" data-aos="fade-up" data-aos-duration="1000">

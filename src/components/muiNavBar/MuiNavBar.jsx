@@ -1,4 +1,5 @@
 import React,{useEffect, useState, useContext} from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContextModalConnexion } from "../../useContext";
 import {onAuthStateChanged, signOut} from "firebase/auth"
 import { auth } from "../../utils/Firebase.config";
@@ -30,9 +31,9 @@ const ResponsiveAppBar = () => {
   const [anchorElUser, setAnchorElUser] = useState(false);
   const [themeMode, setThemeMode] = useState(false);
   const { value, setValue } = useContext(UserContextModalConnexion);
+  const navigate = useNavigate();
 
   useEffect(()=>{
-
     onAuthStateChanged(auth,(currentUser)=> {
       setUser(currentUser)
     })
@@ -51,7 +52,7 @@ const ResponsiveAppBar = () => {
   };
 
   const myAccount = () => {
-    console.log("redirection vers page mon compte");
+     navigate("/Compte");
   };
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
@@ -95,7 +96,7 @@ const ResponsiveAppBar = () => {
               textDecoration: "none",
             }}
           >
-            Halal
+            DABIHAH
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -265,7 +266,7 @@ const ResponsiveAppBar = () => {
               onClose={handleCloseUserMenu}
             >
               {user && (
-                <MenuItem onClick={myAccount}>
+                <MenuItem onClick={myAccount}  >
                   <Typography textAlign="center"> Mon compte</Typography>
                 </MenuItem>
               )}

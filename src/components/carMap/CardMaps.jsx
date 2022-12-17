@@ -283,7 +283,7 @@ export default function CardMaps(props) {
               aria-label="add"
               onClick={ ()=> { setAffichageCarte(!affichageCarte)}}
             >
-               {affichageCarte ? 'Afficher les Restaurants' : 'Afficher la carte'}
+               {affichageCarte ? 'Restaurants ' : 'Carte '}
               <MapIcon sx={{ mr: 1 }} />
             </Fab>
           </div>

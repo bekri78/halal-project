@@ -12,6 +12,7 @@ const Login = () => {
   const loginEmail = useRef();
   const loginPassword = useRef();
   const [error, setError] = useState(false);
+  
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -27,6 +28,8 @@ const Login = () => {
       setError(true);
     }
   };
+
+   
   return (
     <div
       className="container-inscription"

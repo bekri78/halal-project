@@ -1,13 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 
+import "./RestauDetail.css";
 import AutoCompleteResto from "../autoCompleteResto/AutoCompleteResto";
 import PredictionsOnInputChange from "../autoComplete/InputSearch";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth, db } from "../../utils/Firebase.config";
+import { addDoc, collection, getDocs } from "firebase/firestore";
+import UserComment from "../userComment/UserComment";
+import PostComment from "../userComment/PostComment";
+import Timelines from "./timeline/Timeline";
+import HalalLogo from "../../ressource/img/halal-food-logo.png";
+import imgBoss from "../../ressource/img/img-boss-test.jpg";
+import Cadeau from "../../ressource/img/cadeau.svg";
 
-import Divider from "@mui/material/Divider";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Divider from "@mui/material/Divider";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -15,16 +25,11 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Box from "@mui/material/Box";
 import RoomIcon from "@mui/icons-material/Room";
-import Button from "@mui/material/Button";
-import UserComment from "../userComment/UserComment";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import EuroIcon from "@mui/icons-material/Euro";
-import HalalLogo from "../../ressource/img/halal-food-logo.png";
-import Cadeau from "../../ressource/img/cadeau.svg";
 import StarIcon from "@mui/icons-material/Star";
 import Avatar from "@mui/material/Avatar";
 import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
-import imgBoss from "../../ressource/img/img-boss-test.jpg";
 import LocalParkingIcon from "@mui/icons-material/LocalParking";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import AcUnitIcon from "@mui/icons-material/AcUnit";
@@ -35,20 +40,39 @@ import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
 import TableBarIcon from "@mui/icons-material/TableBar";
 import PetsIcon from "@mui/icons-material/Pets";
 import List from "@mui/material/List";
-import "./RestauDetail.css";
-import Footer from "../footer/Footer";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 export default function RestauDetail(props) {
   const { id } = useParams();
   const key = "AIzaSyAURsom7c-jmbNERN0wVqb4OzVten2Hy24"; // clef google map api
   const [restoDetail, setRestoDetail] = useState([]);
+  const [detailsViande, setDetailsViande] = useState(false);
+  console.log(detailsViande)
+  const avis = useRef();
+
+  const [user, setUser] = useState(null);
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+  }, []);
+
+  useEffect(() => {
+    getDocs(collection(db, "posts")).then((res) =>
+      setPosts(res.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+    );
+  }, []);
+
   useEffect(() => {
     resquestApi();
   }, [id]);
 
   const resquestApi = async () => {
     console.log("je suis dans detail");
-    const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${id}&key=AIzaSyATaVEl_K2D9IcWPICwcog27_C1TsOQGr0`;
+    const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${id}&key=${key}`;
     try {
       const resquest = await fetch(
         `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`
@@ -62,26 +86,19 @@ export default function RestauDetail(props) {
     }
   };
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [anchorE2, setAnchorE2] = React.useState(null);
+  const handlePost = async (e) => {
+    e.preventDefault();
 
-  const handlePopoverOpen = (event) => {
-    setAnchorEl(event.currentTarget);
+    const data = {
+      author: user.displayName,
+      authorId: user.uid,
+      message: avis.current.value,
+      comments: null,
+      date: Date.now(),
+    };
+    await addDoc(collection(db, "posts"), data);
+    avis.current.value = "";
   };
-
-  const handlePopoverClose = () => {
-    setAnchorEl(null);
-  };
-  const handlePopoverOpen2 = (event) => {
-    setAnchorE2(event.currentTarget);
-  };
-
-  const handlePopoverClose2 = () => {
-    setAnchorE2(null);
-  };
-
-  const open = Boolean(anchorEl);
-  const open2 = Boolean(anchorE2);
 
   return (
     <>
@@ -100,6 +117,7 @@ export default function RestauDetail(props) {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              marginTop: "5%",
               marginTop: "5%",
             }}
           >
@@ -136,8 +154,8 @@ export default function RestauDetail(props) {
                 <div className="conteneur-cadeaux-span2">
                   <span>
                     Offrez une expérience attendue par tous : une sortie au
-                    restaurant ! Et soutenez les restaurants à leur réouverture
-                    !
+                    restaurant ! Et soutenez les restaurants dans leur
+                    certification !
                   </span>
                 </div>
               </div>
@@ -266,6 +284,28 @@ export default function RestauDetail(props) {
               <Divider />
             </div>
           </Col>
+          <Col xs={12} sm={4} md={4} lg={4}>
+            <div>
+              <div>
+                <p>Origine viande </p>
+              </div>
+              <div>
+                <Button
+                  variant="contained"
+                  style={{
+                    width: "auto",
+                    backgroundColor: "rgb(16, 185, 129)",
+                    color: "rgb(17, 24, 39)",
+                  }}
+                  onClick={() => { 
+                    setDetailsViande(!detailsViande);
+                  }}
+                >
+                 { detailsViande?  "Fermer" : "Plus de details" } 
+                </Button>
+              </div>
+            </div>
+          </Col>
         </Row>
 
         <Row>
@@ -354,6 +394,17 @@ export default function RestauDetail(props) {
             </div>
             <div style={{ paddingLeft: 80, paddingTop: 32 }}>
               <Divider />
+            </div>
+          </Col>
+
+          <Col xs={12} sm={4} md={4} lg={4}>
+            <div>
+         {detailsViande?(
+
+              <Timelines/>
+              ) : <></>
+              
+            }
             </div>
           </Col>
         </Row>
@@ -558,65 +609,66 @@ export default function RestauDetail(props) {
                 </Accordion>
               </div>
             </div>
-            
-        <div style={{ paddingLeft: 80 , marginTop:'5%'}}>
+
+            <div style={{ paddingLeft: 80, marginTop: "5%" }}>
               <Divider />
             </div>
           </Col>
         </Row>
         <Row>
           <Col xs={12} sm={8} md={8} lg={8}>
-              <div style={{ paddingLeft: 80 }}>
-
-            
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                marginLeft: 10,
-                marginTop: "5%",
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <div
-                  style={{ marginRight: 10 }}
-                  className="css-qupkco e1xxesyf0"
-                >
-                  <span className="rating-value">{restoDetail.rating}</span>
-                  <span className="css-ubtbcz eulusyj0">/5</span>
-                </div>
-                <div
-                 style={{ display:'flex'}}
-                  className="css-1lnlsqc eulusyj0"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    style={{
-                      width: 24,
-                      height: 24,
-                      viewBox: "0 0 24 2",
-                      ariaHidden: "true",
-                      focusable: "false",
-                    }}
-                    mr="xs"
-                    alt=""
-                    className="css-igdmea e125e8xs0"
+            <div style={{ paddingLeft: 80 }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginLeft: 10,
+                  marginTop: "5%",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <div
+                    style={{ marginRight: 10 }}
+                    className="css-qupkco e1xxesyf0"
                   >
-                    <path
-                      fillRule="evenodd"
-                      d="M10.5 3C6.365 3 3 6.365 3 10.5S6.365 18 10.5 18h3c.131 0 .26.033.372.098L18 20.458v-3.593c0-.224.1-.437.272-.579A7.478 7.478 0 0 0 21 10.5C21 6.365 17.635 3 13.5 3h-3Zm8.25 19.5a.747.747 0 0 1-.372-.098L13.301 19.5H10.5c-4.963 0-9-4.037-9-9s4.037-9 9-9h3c4.963 0 9 4.037 9 9 0 2.575-1.088 5-3 6.709v4.541a.75.75 0 0 1-.75.75Z"
-                    ></path>
-                  </svg>
-                  {restoDetail.reviews ? restoDetail.reviews.length : 0}{" "}
-                  commentaires
-              <p style={{ marginLeft:10}}> {restoDetail.user_ratings_total} Votes </p>
+                    <span className="rating-value">{restoDetail.rating}</span>
+                    <span className="css-ubtbcz eulusyj0">/5</span>
+                  </div>
+                  <div
+                    style={{ display: "flex" }}
+                    className="css-1lnlsqc eulusyj0"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      style={{
+                        width: 24,
+                        height: 24,
+                        viewBox: "0 0 24 2",
+                        ariaHidden: "true",
+                        focusable: "false",
+                      }}
+                      mr="xs"
+                      alt=""
+                      className="css-igdmea e125e8xs0"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10.5 3C6.365 3 3 6.365 3 10.5S6.365 18 10.5 18h3c.131 0 .26.033.372.098L18 20.458v-3.593c0-.224.1-.437.272-.579A7.478 7.478 0 0 0 21 10.5C21 6.365 17.635 3 13.5 3h-3Zm8.25 19.5a.747.747 0 0 1-.372-.098L13.301 19.5H10.5c-4.963 0-9-4.037-9-9s4.037-9 9-9h3c4.963 0 9 4.037 9 9 0 2.575-1.088 5-3 6.709v4.541a.75.75 0 0 1-.75.75Z"
+                      ></path>
+                    </svg>
+                    {restoDetail.reviews ? restoDetail.reviews.length : 0}{" "}
+                    commentaires
+                    <p style={{ marginLeft: 10 }}>
+                      {" "}
+                      {restoDetail.user_ratings_total} Votes{" "}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-            </div> 
           </Col>
         </Row>
-         
+
         <Row>
           <Col xs={12} sm={8} md={8} lg={8}>
             <List
@@ -634,11 +686,56 @@ export default function RestauDetail(props) {
                   />
                 ))}
             </List>
-            
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12} sm={12} md={12} lg={12}>
+            <div>
+              <h4>Laisser un commentaire</h4>
+              {/* <form
+                onSubmit={(e) => handlePost(e)}
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <TextField
+                  id="outlined-multiline-flexible"
+                  label="Votre Avis..."
+                  multiline
+                  maxRows={4}
+                  inputRef={avis}
+                />
+
+                <Button
+                   type="submit"
+                  variant="contained"
+                  style={{
+                    width: "20%",
+                    backgroundColor: "rgb(16, 185, 129)",
+                    color: "rgb(17, 24, 39)",
+                  }}
+                >
+                  envoyer
+                </Button>
+              </form> */}
+            </div>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col>
+            {/* {posts.length > 0 &&
+              posts
+                .sort((a, b) => b.date - a.date)
+                .map((post) => (
+                  <PostComment key={post.id} post={post} user={user} />
+                ))} */}
           </Col>
         </Row>
       </Container>
-  
     </>
   );
 }
